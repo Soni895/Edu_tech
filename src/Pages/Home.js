@@ -10,16 +10,11 @@ function Home() {
   <div>
    <NavLink to={"/signup"}>
 <div>
-<div>
   <p>
     Become an Instructor
   </p>
   <BsArrowRightCircleFill/>
 </div>
-
-   
-</div>
-
    </NavLink>
   </div> 
 
