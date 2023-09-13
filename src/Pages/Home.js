@@ -118,6 +118,26 @@ function Home() {
         </div>
  
     {/* // section  2 */}
+    <div className=' bg-pure-greys-5 text-richblack-700'>
+        <div className='homepage_bg h-[310px]'></div>
+        <div className='w-11/12 max-w-maxContent flex items-center justify-center gap-5 mx-auto'>
+        <div className=' flex flex-row gap-10  text-black'>
+        <Button   active={true} linkto={"/signup"}>
+            <div className='flex flex-row items-center gap-5'>Explore Full Catalog
+            <BsArrowRightCircleFill/> </div>
+            </Button>
+          
+            <Button active={false} linkto={"/signup"}>
+            Learn More
+            </Button>
+            
+        </div>
+    </div>
+    </div>
+    <div className='w-11/12 max-w-maxContent flex flex-col  items-center justify-center gap-5 mx-auto'>
+
+    </div>
+
 
 
   {/* // section  3 */}
