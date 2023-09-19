@@ -9,7 +9,6 @@ function App() {
       <Routes>
        <Route path="/" element={<Home/>}></Route>
        <Route path="/signup" element={<Signup/>}></Route>
-
       </Routes>
     </div>
   );
