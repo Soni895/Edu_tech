@@ -1,6 +1,6 @@
 import React from 'react'
-import Template from '../components/Template'
-import loginImg from "../assets/login.png"
+import Template from './Template'
+import loginImg from "../assets/Logo/login.png"
 
 const Login = ({setIsLoggedIn}) => {
   return (
