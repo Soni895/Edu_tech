@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import Signup from "./Pages/Signup";
 import { useState } from "react";
+import Navbar from "./components/common/Navbar"
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
