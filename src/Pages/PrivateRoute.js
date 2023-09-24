@@ -1,9 +1,11 @@
 import React from 'react'
-import {Navigate} from 'react-router-dom';
+import {Navigate, Route} from 'react-router-dom';
+import Dashboard from './Dashboard';
 
 const PrivateRoute = ({isLoggedIn, children}) => {
+  console.log(isLoggedIn);
   if(isLoggedIn) {
-    return children;
+    return <Dashboard/>
   }
   else {
     return <Navigate to="/login"/>
