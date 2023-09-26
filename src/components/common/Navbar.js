@@ -1,10 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo from "../../assets/Logo/Logo.svg"
 import {Link} from "react-router-dom"
 import {toast} from "react-hot-toast"
+import {NavbarLinks} from '../../data/navbar-links';
+import { useLocation } from 'react-router-dom';
+
+
 
 
 const Navbar = (props) => {
+    const location = useLocation();
+    const matchroute = (path) => {
+        return location.pathname === path;
+      };
+
     let isLoggedIn = props.isLoggedIn;
     let setIsLoggedIn = props.setIsLoggedIn;
 
@@ -18,15 +27,33 @@ const Navbar = (props) => {
 
 <nav>
     <ul className='text-richblack-100 flex gap-x-6'>
-        <li>
-            <Link to="/">Home</Link>
-        </li>
-        <li>
-            <Link to="/about">About</Link>
-        </li>
-        <li>
-            <Link to="/contact">Contact</Link>
-        </li>
+    
+    {
+        NavbarLinks.map((data,index)=>
+        {
+            return(
+            <li key={index}>
+
+            {
+                data.title!=="Catalog"?(  
+                    <Link to={data?.path}>
+                  <p  className={`${!matchroute(data.path)?"text-richblack-25":"text-yellow-25"}`}>
+                  {data?.title}
+                  </p>  </Link>
+                    ):(
+                    <h1>hi</h1>
+                    )
+            }
+        
+            </li>
+           
+            
+         
+            )
+            
+        })
+    }
+    
     </ul>
 </nav>
 
