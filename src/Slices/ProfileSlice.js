@@ -4,7 +4,7 @@ import { createSlice } from '@reduxjs/toolkit';
 const  initialState={
     user:null,
 }
-const profileSlice=createSlice(
+const ProfileSlice=createSlice(
     {
         name:"Profile",
         initialState,
@@ -17,5 +17,5 @@ const profileSlice=createSlice(
 
     }
 )
-export const {setUser}=AuthSlice.actions;
-export default profileSlice.reducer;
+export const {setUser}=ProfileSlice.actions;
+export default ProfileSlice.reducer;

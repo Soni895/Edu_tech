@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import  AuthSlice from "../Slices/AuthSlice";
 import CartSlice from '../Slices/CartSlice';
-import Profileslice from '../Slices/Profileslice';
+import Profileslice from '../Slices/ProfileSlice';
 
 const Rootreducer= combineReducers(
     {
