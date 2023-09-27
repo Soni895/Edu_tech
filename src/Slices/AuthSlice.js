@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { json } from 'react-router-dom';
 
 const  initialState={
-      token:localStorage.getItem("Token")?(json.parse(localStorage.getItem("Token"))):(null) 
+      Token:localStorage.getItem("Token")?(json.parse(localStorage.getItem("Token"))):(null) 
 }
 const AuthSlice=createSlice(
     {
@@ -11,7 +11,7 @@ const AuthSlice=createSlice(
         reducers: {
            setToken(state,value)
            {
-            state.token=value.payload;
+            state.Token=value.payload;
            }
           },
 

@@ -4,11 +4,18 @@ import {Link} from "react-router-dom"
 import {toast} from "react-hot-toast"
 import {NavbarLinks} from '../../data/navbar-links';
 import { useLocation } from 'react-router-dom';
+import { useSelector } from "react-redux";
 
 
 
 
 const Navbar = (props) => {
+
+const {Token}= useSelector((state)=>state.Auth);
+const {Profile}=useSelector((state)=>state.Profile);
+const {User}=useSelector((state)=>state.Cart)
+
+
     const location = useLocation();
     const matchroute = (path) => {
         return location.pathname === path;
