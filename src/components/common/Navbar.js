@@ -13,8 +13,11 @@ import { AiOutlineShoppingCart } from 'react-icons/ai';
 const Navbar = (props) => {
 
 const {Token}= useSelector((state)=>state.Auth);
-const {Profile}=useSelector((state)=>state.Profile);
-const {User}=useSelector((state)=>state.Cart)
+const {User}=useSelector((state)=>state.Profile);
+const {TotalItems}=useSelector((state)=>state.Cart);
+
+
+// console.log("Token=>",Token,"Profile=>",Profile,"User=>",User);
 
 
     const location = useLocation();
@@ -53,10 +56,7 @@ const {User}=useSelector((state)=>state.Cart)
                     )
             }
         
-            </li>
-           
-            
-         
+            </li>         
             )
             
         })
@@ -72,14 +72,25 @@ const {User}=useSelector((state)=>state.Cart)
     User&& User?.AccountType!=="Instructor" &&(
         <link to={"/dashboard/cart"} className="relative">
         <AiOutlineShoppingCart/>
+        {
+            TotalItems>0 &&(
+                <spam>
+                {TotalItems}
+                </spam>
+            )
+        }
         </link>
 
     )
    }
+
+
    
    
    
-    { !isLoggedIn &&
+    {
+        Token===null &&
+         // !isLoggedIn && 
        ( <Link to="/login">
             <button className='bg-richblack-800 text-richblack-100 py-[8px] 
             px-[12px] rounded-[8px] border border-richblack-700'>
@@ -87,7 +98,9 @@ const {User}=useSelector((state)=>state.Cart)
             </button>
         </Link>)
     }
-    { !isLoggedIn &&
+    {
+        Token===null &&
+        // !isLoggedIn &&
         (<Link to="/signup">
             <button  className='bg-richblack-800 text-richblack-100 py-[8px] 
             px-[12px] rounded-[8px] border border-richblack-700'>
