@@ -83,10 +83,6 @@ const {TotalItems}=useSelector((state)=>state.Cart);
 
     )
    }
-
-
-   
-   
    
     {
         Token===null &&
