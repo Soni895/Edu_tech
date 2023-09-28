@@ -6,7 +6,7 @@ import {NavbarLinks} from '../../data/navbar-links';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { AiOutlineShoppingCart } from 'react-icons/ai';
-
+import UserProfile from "../core/Auth/UserProfile";
 
 
 
@@ -69,11 +69,11 @@ const {TotalItems}=useSelector((state)=>state.Cart);
 <div className='flex items-center gap-x-4'>
    
    {
-    User&& User?.AccountType!=="Instructor" &&(
+    User && User?.AccountType!=="Instructor" &&(
         <link to={"/dashboard/cart"} className="relative">
         <AiOutlineShoppingCart/>
         {
-            TotalItems>0 &&(
+            TotalItems > 0 && (
                 <spam>
                 {TotalItems}
                 </spam>
@@ -104,7 +104,10 @@ const {TotalItems}=useSelector((state)=>state.Cart);
             </button>
         </Link>)
     }
-    { isLoggedIn &&
+    { Token===null &&(
+        <UserProfile></UserProfile>
+    )
+        /* isLoggedIn &&
         <Link to="/">
             <button onClick={() => {
                 setIsLoggedIn(false);
@@ -114,9 +117,10 @@ const {TotalItems}=useSelector((state)=>state.Cart);
             px-[12px] rounded-[8px] border border-richblack-700'>
                 Log Out
             </button>
-        </Link>
+        </Link> */
     }
-    { isLoggedIn &&
+    { 
+        /* isLoggedIn &&
         <Link to="/dashboard">
             <button onClick={()=>
             {
@@ -127,7 +131,7 @@ const {TotalItems}=useSelector((state)=>state.Cart);
             px-[12px] rounded-[8px] border border-richblack-700'>
                 Dashboard
             </button>
-        </Link>
+        </Link> */
     }
 </div>
 </div>
