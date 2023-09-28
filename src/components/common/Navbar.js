@@ -104,7 +104,7 @@ const {TotalItems}=useSelector((state)=>state.Cart);
             </button>
         </Link>)
     }
-    { Token===null &&(
+    { Token!==null &&(
         <UserProfile></UserProfile>
     )
         /* isLoggedIn &&
