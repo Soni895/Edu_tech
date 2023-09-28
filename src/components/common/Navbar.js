@@ -5,6 +5,7 @@ import {toast} from "react-hot-toast"
 import {NavbarLinks} from '../../data/navbar-links';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from "react-redux";
+import { AiOutlineShoppingCart } from 'react-icons/ai';
 
 
 
@@ -66,6 +67,18 @@ const {User}=useSelector((state)=>state.Cart)
 
 {/* Login - SignUp - LogOut - Dashboard */}
 <div className='flex items-center gap-x-4'>
+   
+   {
+    User&& User?.AccountType!=="Instructor" &&(
+        <link to={"/dashboard/cart"} className="relative">
+        <AiOutlineShoppingCart/>
+        </link>
+
+    )
+   }
+   
+   
+   
     { !isLoggedIn &&
        ( <Link to="/login">
             <button className='bg-richblack-800 text-richblack-100 py-[8px] 
