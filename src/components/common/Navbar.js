@@ -7,7 +7,9 @@ import { useLocation } from 'react-router-dom';
 import { useSelector } from "react-redux";
 import { AiOutlineShoppingCart } from 'react-icons/ai';
 import UserProfile from "../core/Auth/UserProfile";
-
+import { useEffect, useState } from "react";
+import { ApiConnector } from "../../services/apiconnector";
+import { Categories } from "../../services/apis";
 
 
 const Navbar = (props) => {
@@ -16,6 +18,28 @@ const {Token}= useSelector((state)=>state.Auth);
 const {User}=useSelector((state)=>state.Profile);
 const {TotalItems}=useSelector((state)=>state.Cart);
 
+const [sublink,setsublink]= useState([]);
+
+const getsublink=async()=>
+{
+    try {
+        const response= await ApiConnector("get",Categories.Category_Api );
+        Console.log("response=>",response);
+        setsublink(response.data.data);
+        
+    } catch (error) {
+        alert("unable to fetch category");
+        
+    }
+
+}
+
+
+useEffect(()=>
+{
+
+
+})
 
 // console.log("Token=>",Token,"Profile=>",Profile,"User=>",User);
 
