@@ -24,7 +24,7 @@ const getsublink=async()=>
 {
     try {
         const response= await ApiConnector("get",Categories.Category_Api );
-        Console.log("response=>",response);
+        console.log("response=>",response);
         setsublink(response.data.data);
         
     } catch (error) {
