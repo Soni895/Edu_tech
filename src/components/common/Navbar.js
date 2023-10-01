@@ -31,14 +31,14 @@ const getsublink=async()=>
         alert("unable to fetch category");
         
     }
-
+ 
 }
 
  
 useEffect(()=>
 {
 
-
+    getsublink();
 },[]); 
 
 // console.log("Token=>",Token,"Profile=>",Profile,"User=>",User);
