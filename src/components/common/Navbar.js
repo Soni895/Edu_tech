@@ -23,7 +23,7 @@ const [sublink,setsublink]= useState([]);
 const getsublink=async()=>
 {
     try {
-        const response= await ApiConnector("get",Categories.Category_Api );
+        const response= await ApiConnector("GET",Categories.Category_Api );
         console.log("response=>",response);
         setsublink(response.data.data);
         
@@ -34,12 +34,12 @@ const getsublink=async()=>
 
 }
 
-
+ 
 useEffect(()=>
 {
 
 
-})
+},[]); 
 
 // console.log("Token=>",Token,"Profile=>",Profile,"User=>",User);
 
