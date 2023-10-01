@@ -19,7 +19,13 @@ const {Token}= useSelector((state)=>state.Auth);
 const {User}=useSelector((state)=>state.Profile);
 const {TotalItems}=useSelector((state)=>state.Cart);
 
-const [sublink,setsublink]= useState([]);
+const [sublink,setsublink]= useState([{
+    title:"python",
+    path:"/python",
+},{
+    title:"java",
+    path:"/java",
+}]);
 
 const getsublink=async()=>
 {
@@ -81,10 +87,23 @@ useEffect(()=>
                   <div className="flex items-center justify-center gap-2 group relative hover:text-richblack-5 cursor-pointer">
                   <h1 className="text-richblack-25"> {data?.title}</h1>
                   <BsChevronDown className=" "/>
-                  <div className="  invisible opacity-0 absolute  left[50%] top[50%]  mr-10  mt-32 flex flex-col  w-[15rem]   z-10 rounded-md  bg-richblack-5 p-4 text-richblack-900
+                  <div className="  invisible opacity-0 absolute  left[50%] top[50%]  mr-10  mt-40 flex flex-col  w-[15rem]   z-10 rounded-md  bg-richblack-5 p-4 text-richblack-900
                    transition-all duration-200  group-hover:opacity-100 group-hover:visible
-                  "></div>
-                  <div className="opacity-0  absolute left[50%] top[50%] ml-20   group-hover:visible mt-28 bg-richblack-5 p-4  transition-all duration-200  group-hover:opacity-100   rotate-45 "></div>
+                  ">
+                    <div>
+                    {
+                        sublink.length ? (
+                            sublink.map((link,index)=><Link to={"/catalog"+link.path} key={index}>
+                            <p>{link.title}</p>
+                           </Link>)
+                           
+                        ):(<div></div>) 
+
+                    }
+                  </div>
+                  </div>
+                  <div className="opacity-0  absolute left[50%] top[50%] ml-[60px]   group-hover:visible mt-20 bg-richblack-5 p-4  transition-all duration-200  group-hover:opacity-100   rotate-45 "></div>
+                  
                   </div>
                     )
             }
