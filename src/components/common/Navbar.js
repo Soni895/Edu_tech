@@ -5,7 +5,8 @@ import {toast} from "react-hot-toast"
 import {NavbarLinks} from '../../data/navbar-links';
 import { useLocation } from 'react-router-dom';
 import { useSelector } from "react-redux";
-import { AiOutlineShoppingCart } from 'react-icons/ai';
+import { AiOutlineShoppingCart} from 'react-icons/ai';
+import {BsChevronDown} from 'react-icons/bs';
 import UserProfile from "../core/Auth/UserProfile";
 import { useEffect, useState } from "react";
 import { ApiConnector } from "../../services/apiconnector";
@@ -23,7 +24,9 @@ const [sublink,setsublink]= useState([]);
 const getsublink=async()=>
 {
     try {
-        const response= await ApiConnector("GET",Categories.Category_Api );
+        
+        const response= await ApiConnector("get",Categories.Category_Api );
+        alert("Category_Api=>",Categories.Category_Api);
         console.log("response=>",response);
         setsublink(response.data.data);
         
@@ -33,12 +36,11 @@ const getsublink=async()=>
     }
  
 }
-
+  
  
 useEffect(()=>
 {
-
-    getsublink();
+    // getsublink();
 },[]); 
 
 // console.log("Token=>",Token,"Profile=>",Profile,"User=>",User);
@@ -76,7 +78,14 @@ useEffect(()=>
                   {data?.title}
                   </p>  </Link>
                     ):(
-                    <h1>hi</h1>
+                  <div className="flex items-center justify-center gap-2 group relative hover:text-richblack-5 cursor-pointer">
+                  <h1 className="text-richblack-25"> {data?.title}</h1>
+                  <BsChevronDown className=" "/>
+                  <div className="  invisible opacity-0 absolute  left[50%] top[50%]  mr-10  mt-32 flex flex-col  w-[15rem]   z-10 rounded-md  bg-richblack-5 p-4 text-richblack-900
+                   transition-all duration-200  group-hover:opacity-100 group-hover:visible
+                  "></div>
+                  <div className="opacity-0  absolute left[50%] top[50%] ml-20   group-hover:visible mt-28 bg-richblack-5 p-4  transition-all duration-200  group-hover:opacity-100   rotate-45 "></div>
+                  </div>
                     )
             }
         
