@@ -37,7 +37,7 @@ const getsublink=async()=>
         setsublink(response.data.data);
         
     } catch (error) {
-        alert("unable to fetch category");
+        alert("unable to fetch category please wait");
         
     }
  
