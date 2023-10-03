@@ -1,4 +1,5 @@
-const Base_Url=process.env.React_App_Url
+// const Base_Url=process.env.Base_Url
+const Base_Url="http://localhost:4000/api/v1/";
 
 console.log("Base_Url=>",Base_Url);
 
