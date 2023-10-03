@@ -31,8 +31,8 @@ const getsublink=async()=>
 {
     try {
         
-        const response= await ApiConnector("Get",Categories.REACT_APP_Base_Url);
-        console.log("Category_Api=>",Categories.REACT_APP_Base_Url);
+        const response= await ApiConnector("Get",Categories.Category_Api);
+        console.log("Category_Api=>",Categories.Category_Api);
         console.log("response=>",response);
         //   setsublink(response.data.data);
         // console.log("sublink=>",sublink);
