@@ -34,14 +34,16 @@ const getsublink=async()=>
         const response= await ApiConnector("Get",Categories.Category_Api);
         console.log("Category_Api=>",Categories.Category_Api);
         console.log("response=>",response);
-        //   setsublink(response.data.data);
+          setsublink(
+            response.data.data?(response.data.data):([])
+          );
         // console.log("sublink=>",sublink);
         
     } catch (error) {
         alert("unable to fetch category please try again");
         
     }
- 
+
 }
   
 useEffect(()=>
