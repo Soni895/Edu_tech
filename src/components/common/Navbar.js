@@ -104,8 +104,8 @@ useEffect(()=>
                     }
                   </div>
                   </div>
-                  <div className="opacity-0  absolute left[50%] top[50%] ml-[60px]   group-hover:visible mt-20 bg-richblack-5 p-4  transition-all duration-200  group-hover:opacity-100   rotate-45 "></div>
-                  
+                  <div className="opacity-0  absolute left[50%] top[50%] ml-[60px]  
+                   group-hover:visible mt-20 bg-richblack-5 p-4  transition-all duration-200  group-hover:opacity-100   rotate-45 "></div>
                   </div>
                     )
             }
