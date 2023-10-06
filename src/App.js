@@ -7,6 +7,7 @@ import Navbar from "./components/common/Navbar";
 import Login from "./Pages/Login"
 import Dashboard from "./Pages/Dashboard"
 import PrivateRoute from "./Pages/PrivateRoute";
+import ResetPassword from "./Pages/ResetPassword";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -15,6 +16,7 @@ function App() {
     <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
       <Routes>
        <Route path="/" element={<Home/>}></Route>
+       <Route path="/resetpassword" element={<ResetPassword></ResetPassword>} ></Route>
        <Route path="/login" element = {<Login  setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/signup" element={<Signup  setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/dashboard" element ={

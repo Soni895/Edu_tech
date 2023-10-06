@@ -1,17 +1,26 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
 
 function ResetPassword() {
+const dispatch=useDispatch();
 
-const {loading}=useSelector((state)=>state.auth);
-
-const[emailsent,setemailsent]=useState(false);
-const [emial,setemail]=useState("");
-  return (
-    <div>
+const handleonsubit= (event)=>
 {
-    loading?(<div>lading</div>):(<div>
+    event.preventdefault();
+    dispatch(getpasswordresettoken(email,setemail));
+
+
+}
+// const {loading}=useSelector((state)=>state.auth);
+const loading=false;
+const[emailsent,setemailsent]=useState(false);
+
+const [email,setemail]=useState("darshansoni895@gmail.com");
+  return (
+    <div className=' text-white flex justify-center items-center  h-screen w-screen'>
+{
+    loading?(<div className='text-5xl  mb-20' >loading</div>):(<div>
     <h1>
         {
             !emailsent?("Reset Your Password"):("Check Your Email")
@@ -20,11 +29,10 @@ const [emial,setemail]=useState("");
     <p>
         {
             !emailsent?("Have no fear. We’ll email you instructions to reset your password.If you dont have access to your email we can try account recovery"):
-            (`We have sent the reset email to
-            ${email}`)
+            (`We have sent the reset email`)
         }
     </p>
-<form onSubmit={"hi"}>
+<form onSubmit={handleonsubit}>
 {
     !emailsent &&(
         <label>
@@ -33,7 +41,7 @@ const [emial,setemail]=useState("");
             type="email"
             required
             name='email'
-            value={emial}
+            value={email}
             onChange={(value)=>(setemail(value.target.value))}
                 placeholder='Enter your Email Address'
             ></input>
