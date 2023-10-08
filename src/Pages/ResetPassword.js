@@ -6,7 +6,6 @@ import {getpasswordresettoken} from "../services/operations/AuthAPI";
 function ResetPassword() {
 const dispatch=useDispatch();
 
-
 // const {loading}=useSelector((state)=>state.auth);
 const loading=false;
 const[emailsent,setemailsent]=useState(false);
