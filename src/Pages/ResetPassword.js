@@ -7,7 +7,7 @@ function ResetPassword() {
 const dispatch=useDispatch();
 
 // const {loading}=useSelector((state)=>state.auth);
-const loading=false;
+
 const[emailsent,setemailsent]=useState(false);
 
 const [email,setemail]=useState("darshansoni895@gmail.com");
