@@ -1,5 +1,4 @@
 import toast from "react-hot-toast";
-import ResetPassword from "../../Pages/ResetPassword";
 import { setLoading } from "../../Slices/AuthSlice"
 import { ApiConnector } from "../apiconnector";
 import {endpoints} from "../apis";
