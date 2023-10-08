@@ -1,9 +1,17 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link } from 'react-router-dom';
+import {getpasswordresettoken} from "../services/operations/AuthAPI";
 
 function ResetPassword() {
 const dispatch=useDispatch();
+
+
+// const {loading}=useSelector((state)=>state.auth);
+const loading=false;
+const[emailsent,setemailsent]=useState(false);
+
+const [email,setemail]=useState("darshansoni895@gmail.com");
 
 const handleonsubit= (event)=>
 {
@@ -12,11 +20,6 @@ const handleonsubit= (event)=>
 
 
 }
-// const {loading}=useSelector((state)=>state.auth);
-const loading=false;
-const[emailsent,setemailsent]=useState(false);
-
-const [email,setemail]=useState("darshansoni895@gmail.com");
   return (
     <div className=' text-white flex justify-center items-center  h-screen w-screen'>
 {
@@ -44,6 +47,7 @@ const [email,setemail]=useState("darshansoni895@gmail.com");
             value={email}
             onChange={(value)=>(setemail(value.target.value))}
                 placeholder='Enter your Email Address'
+                className=' text-black'
             ></input>
         </label>
     )
