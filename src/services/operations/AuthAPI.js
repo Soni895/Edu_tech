@@ -5,7 +5,6 @@ import { ApiConnector } from "../apiconnector";
 import {endpoints} from "../apis";
 export const getpasswordresettoken=(email,setemail)=>
 {
-    const [laoding,setLoading]=useState(false);
     return async(dispatch)=>
     {
         dispatch(setLoading(true));
