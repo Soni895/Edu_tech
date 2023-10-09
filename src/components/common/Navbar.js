@@ -35,7 +35,7 @@ const getsublink=async()=>
         console.log("Category_Api=>",Categories.Category_Api);
         console.log("response=>",response);
           setsublink(
-            response.data.data?(response.data.data):([])
+            response.data.data?(response.data.data):(sublink)
           );
         // console.log("sublink=>",sublink);
         
