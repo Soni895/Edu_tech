@@ -14,7 +14,7 @@ const [email,setemail]=useState("darshansoni895@gmail.com");
 const handleonsubit= (event)=>
 {
     event.preventdefault();
-    dispatch(getpasswordresettoken(email,setemail));
+    dispatch(getpasswordresettoken(email,setemailsent));
 
 
 }
