@@ -36,12 +36,28 @@ export const getpasswordresettoken=(email,setemailsent)=>
     }
      
 }
-export const  ResetPassword=()=>
+export const  ResetPassword=(Token,{Password,ConfirmPassword})=>
 {
+    console.log(Token,Password,ConfirmPassword);
+
     return async(dispatch)=>
     {
+        dispatch(setLoading(true));
 
-        console.log("hi darshan soni")
+        try {
+            console.log("endpoints.RESETPASSWORD_API=>",endpoints.RESETPASSWORD_API);
+            const response=await ApiConnector("post",endpoints.RESETPASSWORD_API, {Token,ConfirmPassword,Password})
+            console.log(response);
+            toast.success("password set");
+           
+        } 
+         catch (error) {
 
+            console.log(error);
+            toast.error(" failed");
+            
+        }
+
+        dispatch(setLoading(false));
     }
 }

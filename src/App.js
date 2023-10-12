@@ -23,7 +23,7 @@ function App() {
         <Route path="/dashboard" element ={
           <PrivateRoute isLoggedIn={isLoggedIn}> </PrivateRoute>
         } />
-        <Route path="/updatepassword" element={<Updatepassword/>}></Route>
+        <Route path="/updatepassword/:id" element={<Updatepassword/>}></Route>
       
       </Routes>
     </div>

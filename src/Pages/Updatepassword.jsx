@@ -11,7 +11,7 @@ const Token= location.pathname.split('/').at(-1);
 
     const [formdata,setformdata]=useState(
         {
-            password:"",confirmpassword:""
+            ConfirmPassword:"",Password:""
         }
     )
    const {loading}= useSelector((state)=>state.Auth);  
@@ -27,7 +27,7 @@ const Token= location.pathname.split('/').at(-1);
         }
         
     });
-    console.log(formdata.password,formdata.confirmpassword);
+    console.log(formdata.Password,formdata.ConfirmPassword);
 
    }
 
@@ -51,7 +51,7 @@ const handleonsubmit=(event)=>{
                   <form onSubmit={handleonsubmit}> <label>
                     New Password*
                     <input 
-                    type={showpassword?"text":'password'} required name='password' value={formdata.password} placeholder='enter password' onChange={handleonchange} >
+                    type={showpassword?"text":'password'} required name='Password' value={formdata.Password} placeholder='enter password' onChange={handleonchange} >
                        
                     </input>
                     <span onClick={()=>{
@@ -64,7 +64,7 @@ const handleonsubmit=(event)=>{
                    </label>
                    <label>
                     Confirm New Password
-                    <input  className='text-black' type={showconfirmpassword?"text":'password'} required name='confirmpassword' value={formdata.confirmpassword} placeholder='enter confirm password' 
+                    <input  className='text-black' type={showconfirmpassword?"text":'Password'} required name='ConfirmPassword' value={formdata.confirmpassword} placeholder='enter confirm password' 
                     onChange={handleonchange}>
                         
                     </input>
