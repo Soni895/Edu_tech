@@ -2,13 +2,16 @@ import toast from "react-hot-toast";
 import { setLoading } from "../../Slices/AuthSlice"
 import { ApiConnector } from "../apiconnector";
 import {endpoints} from "../apis";
-export const getpasswordresettoken=(email,setemail)=>
+
+
+
+export const getpasswordresettoken=(email,setemailsent)=>
 {
     return async(dispatch)=>
     {
         dispatch(setLoading(true));
         try {
-            const response= await ApiConnector("post",endpoints.RESETPASSTOKEN_API, {email})
+            const response= await ApiConnector("post",endpoints.RESETPASSWORD_API, {email})
             console.log ("response=>",response);
 
             if(!response.data.success)
