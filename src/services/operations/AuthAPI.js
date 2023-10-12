@@ -49,8 +49,12 @@ export const  ResetPassword=(Token,{Password,ConfirmPassword})=>
             const response=await ApiConnector("post",endpoints.RESETPASSWORD_API, {Token,ConfirmPassword,Password})
             console.log(response);
             toast.success("password set");
-           
+            if(!response.data.success)
+            {
+                throw new Error(response.data.message);
+            }
         } 
+        
          catch (error) {
 
             console.log(error);
