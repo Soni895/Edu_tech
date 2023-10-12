@@ -7,12 +7,15 @@ import {endpoints} from "../apis";
 
 export const getpasswordresettoken=(email,setemailsent)=>
 {
+    console.log("email=>",email);
     return async(dispatch)=>
     {
         dispatch(setLoading(true));
         try {
-            const response= await ApiConnector("post",endpoints.RESETPASSWORD_API, {email})
+            console.log("endpoints.RESETPASSWORD_API=>",endpoints.RESETPASSTOKEN_API);
+            const response= await ApiConnector("post",endpoints.RESETPASSTOKEN_API, {email})
             console.log ("response=>",response);
+           
 
             if(!response.data.success)
             {
@@ -22,8 +25,9 @@ export const getpasswordresettoken=(email,setemailsent)=>
             setemailsent(true);
 
         } catch (error) {
-            
+
             console.log(error);
+            toast.error("Reset Email Sent failed");
             
         }
 
