@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch} from 'react-redux'
 import { Link } from 'react-router-dom';
 import {getpasswordresettoken} from "../services/operations/AuthAPI";
 
@@ -13,7 +13,8 @@ const [email,setemail]=useState("darshansoni895@gmail.com");
 
 const handleonsubit= (event)=>
 {
-    event.preventdefault();
+    event.preventDefault()
+     console.log("handleonsubit called",email);
     dispatch(getpasswordresettoken(email,setemailsent));
 
 
@@ -33,7 +34,7 @@ const handleonsubit= (event)=>
             (`We have sent the reset email`)
         }
     </p>
-<form onSubmit={handleonsubit}>
+<form  onSubmit={handleonsubit} >
 {
     !emailsent &&(
         <label>
@@ -43,7 +44,11 @@ const handleonsubit= (event)=>
             required
             name='email'
             value={email}
-            onChange={(value)=>(setemail(value.target.value))}
+            onChange={
+                (event)=>(
+                setemail(event.target.value),
+                console.log(email)
+                )}
                 placeholder='Enter your Email Address'
                 className=' text-black'
             ></input>
@@ -52,7 +57,7 @@ const handleonsubit= (event)=>
 }
 
 
-<button>
+<button type='submit'>
         {
             !emailsent?("Reset Your Password"):("Resend Email")
         }
