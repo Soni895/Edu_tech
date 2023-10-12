@@ -1,9 +1,14 @@
 import React, { useState } from 'react'
-import { useSelector } from 'react-redux'
-import { Link } from 'react-router-dom';
-
+import { useDispatch, useSelector } from 'react-redux'
+import { Link, useLocation } from 'react-router-dom';
+import { ResetPassword } from '../services/operations/AuthAPI';
+import { AiFillEyeInvisible,AiFillEye } from 'react-icons/ai';
 const Updatepassword = () => {
      
+    const dispatch = useDispatch();
+    const location= useLocation();
+const Token= location.pathname.split('/').at(-1);
+
     const [formdata,setformdata]=useState(
         {
             password:"",confirmpassword:""
@@ -13,7 +18,7 @@ const Updatepassword = () => {
    
    const [showpassword,setShowpassword]= useState(false);
    const [showconfirmpassword,setShowconfirmpassword]= useState(false);
-   const [showpasswordicon,setShowpasswordicon]=useState(false);
+
    const handleonchange =(event)=>
    {
     setformdata((prevdata)=>{
@@ -28,6 +33,8 @@ const Updatepassword = () => {
 
 const handleonsubmit=(event)=>{
     event.preventDefault();
+
+    dispatch(ResetPassword(Token,formdata));
     console.log(formdata);
 
 }
@@ -44,13 +51,30 @@ const handleonsubmit=(event)=>{
                   <form onSubmit={handleonsubmit}> <label>
                     New Password*
                     <input 
-                    
-                    type={showpassword?"text":'password'} required name='password' value={formdata.password} placeholder='enter password' onChange={handleonchange} ></input>
+                    type={showpassword?"text":'password'} required name='password' value={formdata.password} placeholder='enter password' onChange={handleonchange} >
+                       
+                    </input>
+                    <span onClick={()=>{
+                        setShowpassword((pev)=>!pev)
+                    }}>
+                            {
+                                showpassword?<AiFillEyeInvisible/>:<AiFillEye/>
+                            }
+                        </span>
                    </label>
                    <label>
                     Confirm New Password
-                    <input type={showconfirmpassword?"text":'password'} required name='confirmpassword' value={formdata.confirmpassword} placeholder='enter confirm password' 
-                    onChange={handleonchange}></input>
+                    <input  className='text-black' type={showconfirmpassword?"text":'password'} required name='confirmpassword' value={formdata.confirmpassword} placeholder='enter confirm password' 
+                    onChange={handleonchange}>
+                        
+                    </input>
+                    <span onClick={()=>{
+                        setShowconfirmpassword((pev)=>!pev)
+                    }}>
+                            {
+                                showconfirmpassword?<AiFillEyeInvisible/>:<AiFillEye/>
+                            }
+                        </span>
                    </label>
                    <button> Reset Password</button>
                    </form>

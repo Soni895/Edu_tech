@@ -34,7 +34,14 @@ export const getpasswordresettoken=(email,setemailsent)=>
         dispatch(setLoading(false));
          
     }
-
-
      
+}
+export const  ResetPassword=()=>
+{
+    return async(dispatch)=>
+    {
+
+        console.log("hi darshan soni")
+
+    }
 }
