@@ -8,6 +8,7 @@ import Login from "./Pages/Login"
 import Dashboard from "./Pages/Dashboard"
 import PrivateRoute from "./Pages/PrivateRoute";
 import ResetPassword from "./Pages/ResetPassword";
+import Updatepassword from "./Pages/Updatepassword";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -21,8 +22,8 @@ function App() {
         <Route path="/signup" element={<Signup  setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/dashboard" element ={
           <PrivateRoute isLoggedIn={isLoggedIn}> </PrivateRoute>
-       
         } />
+        <Route path="/updatepassword" element={<Updatepassword/>}></Route>
       
       </Routes>
     </div>
