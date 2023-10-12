@@ -19,8 +19,10 @@ export const getpasswordresettoken=(email,setemailsent)=>
                 throw new Error(response.data.message);
             }
             toast.success("Reset Email Sent");
+            setemailsent(true);
 
         } catch (error) {
+            
             console.log(error);
             
         }
