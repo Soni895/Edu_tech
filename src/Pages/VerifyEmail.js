@@ -8,8 +8,8 @@ const VerifyEmail = () => {
   const dispatch=useDispatch();
   const [otp,setotp]=useState("");
   return (
-    <div>
-      {laoding ? (
+    <div className="text-white">
+      {loading ? (
         <div>laoding...</div>
       ) : (
         <div>

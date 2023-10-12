@@ -1,5 +1,5 @@
 import "./App.css";
-import { Route, Routes } from "react-router-dom";
+import { Route, Router, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import Signup from "./Pages/Signup";
 import { useState } from "react";
@@ -9,6 +9,7 @@ import Dashboard from "./Pages/Dashboard"
 import PrivateRoute from "./Pages/PrivateRoute";
 import ResetPassword from "./Pages/ResetPassword";
 import Updatepassword from "./Pages/Updatepassword";
+import VerifyEmail from "./Pages/VerifyEmail";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -24,7 +25,7 @@ function App() {
           <PrivateRoute isLoggedIn={isLoggedIn}> </PrivateRoute>
         } />
         <Route path="/updatepassword/:id" element={<Updatepassword/>}></Route>
-      
+        <Route path="/VerifyEmail" element={<VerifyEmail/>} ></Route>
       </Routes>
     </div>
   );
