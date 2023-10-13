@@ -65,3 +65,13 @@ export const  ResetPassword=(Token,{Password,ConfirmPassword})=>
         dispatch(setLoading(false));
     }
 }
+
+export const sendotp=()=>
+{
+
+}
+
+export const signup= ()=>
+{
+
+}

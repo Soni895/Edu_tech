@@ -1,17 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import OTPInput from "react-otp-input";
 import { useDispatch, useSelector } from "react-redux";
-import { Link } from "react-router-dom";
-
+import { Link, useNavigate } from "react-router-dom";
+import { sendotp,signup } from "../services/operations/AuthAPI";
 const VerifyEmail = () => {
-  const { loading } = useSelector((state) => state.Auth);
+  const { signupdata, loading } = useSelector((state) => state.Auth);
   const dispatch=useDispatch();
   const [otp,setotp]=useState("");
+  const navigate=useNavigate();
+
+  useEffect(()=>
+  {
+    if(!signupdata)
+    {
+        // navigate("/signup");
+    }
+
+  },[]);
 
   const handleonsubmit= (event)=>
   {
     event.preventDefault();
     console.log("otp=>", otp);
+    const {
+        accountType,
+        firstName,
+        lastName,
+        email,
+        password,
+        confirmPassword,
+      } = signupdata;
+  
+    dispatch(signup( accountType,
+        firstName,
+        lastName,
+        email,
+        password,
+        confirmPassword,otp,navigate))
 
   }
   return (
@@ -32,7 +57,7 @@ const VerifyEmail = () => {
 
           }}
           numInputs={6}
-          renderInput={(props) => <input {...props} />}
+          renderInput={(props) => <input {...props} placeholder="-" renderSeparator={<span>"-</span>}/>}
           ></OTPInput>
             </div>
             <button>verify Email</button>
@@ -40,7 +65,10 @@ const VerifyEmail = () => {
           </form>
           <div>
               <Link to={"/login"}> Back to Login</Link>
-              <div>resend it</div>
+              <button onClick={()=>
+              {
+                dispatch(sendotp(signupdata.email))
+              }}>resend it</button>
             </div>
         </div>
       )}
