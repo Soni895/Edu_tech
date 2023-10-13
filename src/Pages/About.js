@@ -24,9 +24,9 @@ const About = () => {
                  emerging technologies, and nurturing a vibrant learning community.</p>
             </header>
             <div className='flex gap-x-3 mx-auto'>
-                <img src={BannerImage1} />
-                <img src={BannerImage2} />
-                <img src={BannerImage3} />
+                <img src={BannerImage1} alt='img1' />
+                <img src={BannerImage2} alt='img2' />
+                <img src={BannerImage3}  alt='img3'/>
             </div>
         </div>
       </section>
@@ -56,7 +56,7 @@ const About = () => {
                 </div>
                 {/* foudning story right box */}
                 <div>
-                    <img  src={FoundingStory} />
+                    <img  src={FoundingStory} alt='img' />
                 </div>
             </div>
 
