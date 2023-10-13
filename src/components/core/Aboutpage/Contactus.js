@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
 
 function   Contactus() {
@@ -6,12 +6,32 @@ function   Contactus() {
     const {
         register,
         handleSubmit,
-        formState: { errors },
-      } = useForm();
+        reset,
+        formState: { errors ,isSubmitSuccessful},
+      } = useForm(); 
+
+ useEffect(()=>
+ {
+    if(isSubmitSuccessful)
+    {
+        reset(
+            {
+                email:"",
+                firstname:"",
+                lastname:"",
+                message:'',
+                phoneNo:"",
+
+            }
+        )
+    }
+
+
+ },[isSubmitSuccessful,reset])
+     
 
   return (
     <div>
-
 
     </div>
   )
