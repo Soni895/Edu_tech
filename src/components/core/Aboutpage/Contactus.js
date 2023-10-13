@@ -1,8 +1,18 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-function Contactus() {
+function   Contactus() {
+    const [laoding,setloading]=useState(false);
+    const {
+        register,
+        handleSubmit,
+        formState: { errors },
+      } = useForm();
+
   return (
-    <div>Contactus</div>
+    <div>
+
+
+    </div>
   )
 }
 
