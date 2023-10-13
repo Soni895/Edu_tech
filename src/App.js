@@ -10,6 +10,7 @@ import PrivateRoute from "./Pages/PrivateRoute";
 import ResetPassword from "./Pages/ResetPassword";
 import Updatepassword from "./Pages/Updatepassword";
 import VerifyEmail from "./Pages/VerifyEmail";
+import About from "./Pages/About";
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -18,6 +19,7 @@ function App() {
     <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
       <Routes>
        <Route path="/" element={<Home/>}></Route>
+       <Route path="/about" element={<About/>}></Route>
        <Route path="/resetpassword" element={<ResetPassword></ResetPassword>} ></Route>
        <Route path="/login" element = {<Login  setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/signup" element={<Signup  setIsLoggedIn={setIsLoggedIn} />} />
