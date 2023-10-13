@@ -15,8 +15,7 @@ const StatsComponent = () => {
             <div className='flex gap-x-5'>
                 {
                     Stats.map( (data, index) => {
-                        return (
-                            <div key={index}>
+                        return <div key={index}>
                                 <h1>
                                     {data.count}
                                 </h1>
@@ -24,7 +23,7 @@ const StatsComponent = () => {
                                     {data.label}
                                 </h2>
                             </div>
-                        )
+                        
                     } )
                 }
             </div>
