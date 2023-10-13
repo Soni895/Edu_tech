@@ -36,16 +36,16 @@ const submithandler=async(data)=>
 }
 
   return (
-   <div >
+   <div className='' >
     <form onSubmit={handleSubmit(submithandler)}>
-    <div>
+    <div className='flex flex-col'>
     <label htmlFor='firstname'> First Name</label>
     <input
         type="text"
-        name="firstname"
-        id="firstname"
+        // name="firstname"
+        // id="firstname"
         placeholder='Enter Your First Name'
-         {...register("firstanme",{required:true})}
+         {...register("firstname",{required:true})}
     />
     {
         errors.firstname&&(
@@ -62,7 +62,7 @@ const submithandler=async(data)=>
         {...register("lastname")}
     />
     </div>
-    <div>
+    <div className='flex flex-col'>
         <labl htmlFor="email"> Email Address</labl>
         <input
         type='email'
@@ -78,15 +78,23 @@ const submithandler=async(data)=>
             )
         }
     </div>
-    <div>
+    <div className='flex flex-col'>
     <label htmlFor='message'> message</label>
         <textarea
         name='message'
         id='message'
         placeholder='enter message'
         {...register("message",{required:true})}
+        rows={6}
+        cols={5}
         ></textarea>
+        {
+            errors.message &&(
+                <span>enter message</span>
+            )
+        }
     </div>
+    <button type='submit'>Send message</button>
 
   
     </form>
