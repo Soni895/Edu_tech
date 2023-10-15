@@ -32,6 +32,7 @@ function   Contactus() {
 
 const submithandler=async(data)=>
 {
+    console.log("form data=>",data);
 
 }
 
@@ -39,7 +40,7 @@ const submithandler=async(data)=>
    <div className='' >
     <form onSubmit={handleSubmit(submithandler)}>
     <div className='flex flex-col'>
-    <label htmlFor='firstname'> First Name</label>
+    <label htmlFor='firstnam'> First Name</label>
     <input
         type="text"
         // name="firstname"
@@ -63,7 +64,7 @@ const submithandler=async(data)=>
     />
     </div>
     <div className='flex flex-col'>
-        <labl htmlFor="email"> Email Address</labl>
+        <label htmlFor="email"> Email Address</label>
         <input
         type='email'
         name='email'
