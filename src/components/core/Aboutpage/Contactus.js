@@ -86,8 +86,8 @@ const submithandler=async(data)=>
         id='message'
         placeholder='enter message'
         {...register("message",{required:true})}
-        rows={6}
-        cols={5}
+        rows={7}
+        cols={6}
         ></textarea>
         {
             errors.message &&(
