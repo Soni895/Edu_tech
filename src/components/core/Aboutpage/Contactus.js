@@ -94,6 +94,16 @@ const submithandler=async(data)=>
             )
         }
     </div>
+    <div className=' text-white flex flex-col'>
+       <label className=' '> Contact Number</label>
+       <input
+            type='number'
+            name='number'
+            id='number'
+            {...register("number",{required:true})}
+        />
+    </div>
+
     <div className='flex flex-col'>
     <label className='text-white' htmlFor='message'> message</label>
         <textarea
