@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import { useForm } from 'react-hook-form';
+import { set, useForm } from 'react-hook-form';
+import { ApiConnector } from '../../../services/apiconnector';
+import {contactusEndpoint} from "../../../services/apis"
 
 function   Contactus() {
     const [laoding,setloading]=useState(false);
@@ -33,28 +35,41 @@ function   Contactus() {
 const submithandler=async(data)=>
 {
     console.log("form data=>",data);
+    try {
+       setloading(true);
+       const response= await ApiConnector("post",contactusEndpoint.CONTACT_US_API,data);
+
+       console.log(response);
+      
+    
+        
+    } catch (error) {
+        console.log("error occur=>",error.message);
+        
+    }
+    setloading(false);
 
 }
 
   return (
-   <div className='' >
+   <div className=' text-black' >
     <form onSubmit={handleSubmit(submithandler)}>
     <div className='flex flex-col'>
-    <label htmlFor='firstnam'> First Name</label>
+    <label htmlFor='firstname' className='text-white'> First Name</label>
     <input
         type="text"
-        // name="firstname"
-        // id="firstname"
+        name="firstname"
+        id="firstname"
         placeholder='Enter Your First Name'
-         {...register("firstname",{required:true})}
+         {...register("Firstname",{required:true})}
     />
     {
         errors.firstname&&(
-            <span> please enter your name</span>
+            <span className='text-white'> please enter your name</span>
         )
     }
       
-      <label htmlFor='lastname'> last Name</label>
+      <label  className='text-white' htmlFor='lastname'> last Name</label>
     <input
         type="text"
         name="lastname"
@@ -64,7 +79,7 @@ const submithandler=async(data)=>
     />
     </div>
     <div className='flex flex-col'>
-        <label htmlFor="email"> Email Address</label>
+        <label  className='text-white' htmlFor="email"> Email Address</label>
         <input
         type='email'
         name='email'
@@ -75,12 +90,12 @@ const submithandler=async(data)=>
 
         {
             errors.email &&(
-                <span> please enter valid email</span>
+                <span className='text-white'> please enter valid email</span>
             )
         }
     </div>
     <div className='flex flex-col'>
-    <label htmlFor='message'> message</label>
+    <label className='text-white' htmlFor='message'> message</label>
         <textarea
         name='message'
         id='message'
@@ -92,11 +107,11 @@ const submithandler=async(data)=>
         ></textarea>
         {
             errors.message &&(
-                <span>enter message</span>
+                <span className='text-white'>enter message</span>
             )
         }
     </div>
-    <button type='submit'>Send message</button>
+    <button type='submit' className='text-white'>Send message</button>
 
   
     </form>
