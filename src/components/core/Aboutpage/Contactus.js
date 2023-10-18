@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { set, useForm } from 'react-hook-form';
 import { ApiConnector } from '../../../services/apiconnector';
-import {contactusEndpoint} from "../../../services/apis"
+import {contactusEndpoint} from "../../../services/apis";
+import  code from "../../../data/countrycode.json";
 
 function   Contactus() {
     const [laoding,setloading]=useState(false);
@@ -22,7 +23,7 @@ function   Contactus() {
                 firstname:"",
                 lastname:"",
                 message:'',
-                phoneNo:"",
+            
 
             }
         )
@@ -38,7 +39,6 @@ const submithandler=async(data)=>
     try {
        setloading(true);
        const response= await ApiConnector("post",contactusEndpoint.CONTACT_US_API,data);
-
        console.log(response);
       
     
@@ -50,6 +50,7 @@ const submithandler=async(data)=>
     setloading(false);
 
 }
+console.log(code);
 
   return (
    <div className=' text-black' >
@@ -96,12 +97,33 @@ const submithandler=async(data)=>
     </div>
     <div className=' text-white flex flex-col'>
        <label className=' '> Contact Number</label>
-       <input
+      <div className='flex flex-row'>
+      <div className=' text-black'>
+        <select
+        name='dropdown'
+        id='dropdown'
+        {...register("code",{required:true})}>
+        
+        {
+            code.map((data,index)=>
+            {
+                
+                return (
+                    <option key={index}>{data.country},{data.code} </option>
+                )
+            })
+        }
+        
+           
+        </select>
+      </div>
+      <input
             type='number'
             name='number'
             id='number'
             {...register("number",{required:true})}
         />
+      </div>
     </div>
 
     <div className='flex flex-col'>
