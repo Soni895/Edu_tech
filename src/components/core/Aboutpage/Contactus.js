@@ -106,12 +106,13 @@ console.log(code);
         
         {
             code.map((data,index)=>
-            {
+            
                 
-                return (
+                 (
+                    console.log("hi"),
                     <option key={index}>{data.country},{data.code} </option>
                 )
-            })
+            )
         }
         
            
