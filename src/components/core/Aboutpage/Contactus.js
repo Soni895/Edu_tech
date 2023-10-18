@@ -95,9 +95,9 @@ console.log(code);
             )
         }
     </div>
-    <div className=' text-white flex flex-col'>
-       <label className=' '> Contact Number</label>
-      <div className='flex flex-row'>
+    <div className=' '>
+       <label className=' text-white'> Contact Number</label>
+      <div className='flex flex-col'>
       <div className=' text-black'>
         <select
         name='dropdown'
@@ -110,20 +110,30 @@ console.log(code);
                 
                  (
                     console.log("hi"),
-                    <option key={index}>{data.country},{data.code} </option>
+                    <option key={index} value={data.code}>{data.country},{data.code} </option>
                 )
             )
         }
         
            
         </select>
+       
       </div>
       <input
             type='number'
             name='number'
             id='number'
-            {...register("number",{required:true})}
+            placeholder='12345-67890'
+            {...register("number",{required:{value:true,message:"please enter mobile number"},
+            maxLength:{value:10,message:"invalid phone number"}
+            ,minLength:{value:8,message:"invalid phone number"}})}
         />
+        
+        {
+            errors.number &&(
+                <span className='text-white'> please enetr valid number</span>
+            )
+        }
       </div>
     </div>
 
