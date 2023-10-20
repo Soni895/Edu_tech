@@ -1,4 +1,9 @@
-import { ACCOUNT_TYPE } from "../utils/constants";
+// import { ACCOUNT_TYPE } from "../utils/constants";
+const ACCOUNT_TYPE = {
+  STUDENT: "Student",
+  INSTRUCTOR: "Instructor",
+  ADMIN: "Admin",
+}
 export const sidebarLinks = [
   {
     id: 1,
