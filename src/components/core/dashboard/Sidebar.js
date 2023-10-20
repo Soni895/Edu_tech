@@ -25,6 +25,20 @@ if(authloading||profileloading){
 
   return (
     <div>
+    <div>
+      {
+        sidebarLinks.map((link,index)=>
+        {
+          if(link.type   && user.accouttype!==link.type)
+          {
+            return null;
+          }
+          return (
+            <sidebarLinks></sidebarLinks>
+          )
+        })
+      }
+    </div>
 
 
     </div>

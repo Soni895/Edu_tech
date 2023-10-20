@@ -55,9 +55,13 @@ useEffect(()=>
 
 
     const location = useLocation();
-    const matchroute = (path) => {
-        return location.pathname === path;
-      };
+   
+    const matchroute=(path)=>
+    {
+            console.log(path);
+           console.log(location.pathname);
+            return location.pathname === path;
+    }
 
     let isLoggedIn = props.isLoggedIn;
     let setIsLoggedIn = props.setIsLoggedIn;
