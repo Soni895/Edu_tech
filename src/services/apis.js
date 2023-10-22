@@ -1,6 +1,6 @@
-const BASE_URL = process.env.REACT_APP_Base_Url;
+// const BASE_URL = process.env.REACT_APP_Base_Url;
 
-// const BASE_URL="http://localhost:4000/api/v1";
+const BASE_URL="http://localhost:4000/api/v1";
 
 console.log("REACT_APP_Base_Url=>",BASE_URL);
 
