@@ -19,13 +19,7 @@ const {Token}= useSelector((state)=>state.Auth);
 const {User}=useSelector((state)=>state.Profile);
 const {TotalItems}=useSelector((state)=>state.Cart);
 
-const [sublink,setsublink]= useState([{
-    title:"python",
-    path:"/python",
-},{
-    title:"java",
-    path:"/java",
-}]);
+const [sublink,setsublink]= useState([]);
 
 const getsublink=async()=>
 {
@@ -34,10 +28,13 @@ const getsublink=async()=>
         const response= await ApiConnector("Get",Categories.Category_Api);
         console.log("Category_Api=>",Categories.Category_Api);
         console.log("response=>",response);
-          setsublink(
-            response.data.data?(response.data.data):(sublink)
+       const Description= response?.data?.response;
+       console.log("Description=>",Description);
+        setsublink(
+            Description
           );
-        // console.log("sublink=>",sublink);
+          
+
         
     } catch (error) {
         alert("unable to fetch category please try again");
@@ -48,7 +45,9 @@ const getsublink=async()=>
   
 useEffect(()=>
 {
-    getsublink();
+   getsublink();
+  
+  
 },[]); 
 
 // console.log("Token=>",Token,"Profile=>",Profile,"User=>",User);
@@ -66,6 +65,8 @@ useEffect(()=>
     let isLoggedIn = props.isLoggedIn;
     let setIsLoggedIn = props.setIsLoggedIn;
 
+
+    console.log("sublink=>",sublink);
   return (
     <div className=' border-b-2  border-richblack-800'>
  <div className='flex justify-between items-center w-11/12 max-w-[1160px] py-4 mx-auto'>
