@@ -100,8 +100,8 @@ useEffect(()=>
                     <div>
                     {
                         sublink.length ? (
-                            sublink.map((link,index)=><Link to={"/catalog"+link.path} key={index}>
-                            <p>{link.title}</p>
+                            sublink.map((link,index)=><Link to={"/catalog"+link?.path} key={index}>
+                            <p>{link.Description}</p>
                            </Link>)
                            
                         ):(<div></div>) 
