@@ -14,7 +14,7 @@ import { categorycontext } from "../../context/CategoryContext";
 
 
 
-const Navbar = (props) => {
+const Navbar = ({setIsLoggedIn,isLoggedIn}) => {
     
 
 //  stats from auth,profule,cart
@@ -53,9 +53,6 @@ useEffect(()=>
            console.log(location.pathname);
             return location.pathname === path;
     }
-
-    let isLoggedIn = props.isLoggedIn;
-    let setIsLoggedIn = props.setIsLoggedIn;
 
 
     console.log("sublink=>",sublink);
