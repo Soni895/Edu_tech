@@ -4,17 +4,17 @@ import HighlightText from './HighlightText';
 import { useState } from 'react';
 
 
-const tabsName = [
-    "Free",
-    "New to coding",
-    "Most popular",
-    "Skill paths",
-    "Career paths",
-];
+// const tabsName = [
+//     "Free",
+//     "New to coding",
+//     "Most popular",
+//     "Skill paths",
+//     "Career paths",
+// ];
 
 const ExploreMore = () => {
 
-    const [currentTab, setCurrentTab] = useState(tabsName[0]);
+    const [currentTab, setCurrentTab] = useState(HomePageExplore[0].tag);
     const [courses, setCourses] = useState(HomePageExplore[0].courses);
     const [currentCard, setCurrentCard] = useState(HomePageExplore[0].courses[0].heading)
 
@@ -39,18 +39,19 @@ const ExploreMore = () => {
       <div className='mt-5 flex flex-row rounded-full bg-richblack-800 mb-5 border-richblack-100
       px-1 py-1'>
       {
-        tabsName.map( (element, index) => {
+        HomePageExplore.map( (element, index) => {
+          console.log(element);
             return (
                 <div
                 className={`text-[16px] flex flex-row items-center gap-2 
-                ${currentTab === element 
+                ${currentTab === element.tag
                 ? "bg-richblack-900 text-richblack-5 font-medium"
                 : "text-richblack-200" } rounded-full transition-all duration-200 cursor-pointer
                 hover:bg-richblack-900 hover:text-richblack-5 px-7 py-2`}
                 key={index}
-                onClick={() => setMyCards(element)}
+                onClick={() => setMyCards(element.tag)}
                 >
-                    {element}
+                    {element.tag}
                 </div>
             )
         })
