@@ -11,7 +11,6 @@ import ResetPassword from "./Pages/ResetPassword";
 import Updatepassword from "./Pages/Updatepassword";
 import VerifyEmail from "./Pages/VerifyEmail";
 import About from "./Pages/About";
-
 function App() {
 
   
