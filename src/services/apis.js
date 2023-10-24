@@ -2,7 +2,7 @@
 
 const BASE_URL="http://localhost:4000/api/v1";
 
-console.log("REACT_APP_Base_Url=>",BASE_URL);
+console.log("Base_Url=>",BASE_URL);
 
 export const Categories= 
 {

@@ -21,7 +21,7 @@ function App() {
     <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
       <Routes>
        <Route path="/" element={<Home/>}></Route>
-       <Route path="/about" element={<About/>}></Route>
+       <Route path="/about" element={<Dashboard/>}></Route>
        <Route path="/resetpassword" element={<ResetPassword></ResetPassword>} ></Route>
        <Route path="/login" element = {<Login  setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/signup" element={<Signup  setIsLoggedIn={setIsLoggedIn} />} />
@@ -31,6 +31,7 @@ function App() {
         <Route path="/updatepassword/:id" element={<Updatepassword/>}></Route>
         <Route path="/VerifyEmail" element={<VerifyEmail/>} ></Route>
         {/* <Route path="/dashboard/my-profile" element={<Myprofile></Myprofile>}></Route> */}
+        <Route path="/dashboard" element={<About/>}></Route>
       </Routes>
     </div>
   );

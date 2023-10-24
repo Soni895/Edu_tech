@@ -2,6 +2,9 @@ import toast from "react-hot-toast";
 import { setLoading } from "../../Slices/AuthSlice"
 import { ApiConnector } from "../apiconnector";
 import {endpoints} from "../apis";
+import { Categories } from "../apis";
+
+
 
 
 
@@ -66,12 +69,34 @@ export const  ResetPassword=(Token,{Password,ConfirmPassword})=>
     }
 }
 
-export const sendotp=()=>
+
+
+export const signup= ()=>
 {
 
 }
 
-export const signup= ()=>
+
+export const sendotp = () => {
+ 
+}
+
+export const  getAllcategory= async(setsublink)=>
 {
+   try {
+    const response= await ApiConnector("Get",Categories.Category_Api);
+    console.log("Category_Api=>",Categories.Category_Api);
+    console.log("response=>",response);
+   const Description= response?.data?.response;
+   console.log("Description=>",Description);
+    setsublink(
+        Description
+      );
+
+    
+   } catch (error) {
+    console.log(error,"unsuccessful to get category");
+    
+   }
 
 }

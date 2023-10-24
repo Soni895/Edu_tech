@@ -2,6 +2,7 @@ import React from 'react'
 // import {logout} from "../../../../services/operations/AuthAPI";
 import { useSelector } from 'react-redux';
 import  {sidebarLinks} from "../../../data/dashboard-links";
+import Sidebarlink from './Sidebarlink';
 
 function Sidebar() {
 
@@ -34,7 +35,7 @@ if(authloading||profileloading){
             return null;
           }
           return (
-            <sidebarLinks></sidebarLinks>
+            <Sidebarlink></Sidebarlink>
           )
         })
       }

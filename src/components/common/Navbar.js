@@ -11,41 +11,28 @@ import UserProfile from "../core/Auth/UserProfile";
 import { useEffect, useState } from "react";
 import { ApiConnector } from "../../services/apiconnector";
 import { Categories } from "../../services/apis";
+import { getAllcategory } from "../../services/operations/AuthAPI";
 
 
 const Navbar = (props) => {
+    
+
+//  stats from auth,profule,cart
 
 const {Token}= useSelector((state)=>state.Auth);
 const {User}=useSelector((state)=>state.Profile);
 const {TotalItems}=useSelector((state)=>state.Cart);
-
 const [sublink,setsublink]= useState([]);
 
-const getsublink=async()=>
-{
-    try {
-        
-        const response= await ApiConnector("Get",Categories.Category_Api);
-        console.log("Category_Api=>",Categories.Category_Api);
-        console.log("response=>",response);
-       const Description= response?.data?.response;
-       console.log("Description=>",Description);
-        setsublink(
-            Description
-          );
-          
+// verified
+console.log("Token User TotalItems sublink=>",Token,User,TotalItems,sublink);
 
-        
-    } catch (error) {
-        alert("unable to fetch category please try again");
-        
-    }
-
-}
   
 useEffect(()=>
 {
-   getsublink();
+
+    // make a function with arguments setsublink and  call
+   getAllcategory(setsublink);
   
   
 },[]); 
