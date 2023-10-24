@@ -8,10 +8,10 @@ import { useSelector } from "react-redux";
 import { AiOutlineShoppingCart} from 'react-icons/ai';
 import {BsChevronDown} from 'react-icons/bs';
 import UserProfile from "../core/Auth/UserProfile";
-import { useEffect, useState } from "react";
-import { ApiConnector } from "../../services/apiconnector";
-import { Categories } from "../../services/apis";
-import { getAllcategory } from "../../services/operations/AuthAPI";
+import { useContext, useEffect, useState } from "react";
+import { categorycontext } from "../../context/CategoryContext";
+// import { getAllcategory } from "../../services/operations/AuthAPI";
+
 
 
 const Navbar = (props) => {
@@ -23,6 +23,11 @@ const {Token}= useSelector((state)=>state.Auth);
 const {User}=useSelector((state)=>state.Profile);
 const {TotalItems}=useSelector((state)=>state.Cart);
 const [sublink,setsublink]= useState([]);
+
+
+// using context api
+
+const {getAllcategory}=useContext(categorycontext);
 
 // verified
 console.log("Token User TotalItems sublink=>",Token,User,TotalItems,sublink);

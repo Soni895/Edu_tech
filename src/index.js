@@ -7,6 +7,7 @@ import { Toaster } from "react-hot-toast";
 import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import Rootreducer from "./Reducer/index";
+import CategoryContext from "./context/CategoryContext";
 
 const store=configureStore(
     {
@@ -18,7 +19,9 @@ const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 <Provider store={store}>
 <BrowserRouter>
-  <App/>
+<CategoryContext>
+ <App/>
+ </CategoryContext>
   <Toaster/>
  </BrowserRouter>
 </Provider>
