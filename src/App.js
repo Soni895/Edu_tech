@@ -19,16 +19,16 @@ function App() {
       <Routes>
        <Route path="/" element={<Home/>}></Route>
        <Route path="/about" element={<About/>}></Route>
-       <Route path="/resetpassword" element={<ResetPassword></ResetPassword>} ></Route>
        <Route path="/login" element = {<Login  setIsLoggedIn={setIsLoggedIn} />} />
         <Route path="/signup" element={<Signup  setIsLoggedIn={setIsLoggedIn} />} />
-        <Route path="/dashboard" element ={
+        <Route path="/resetpassword" element={<ResetPassword></ResetPassword>} ></Route>
+        {/* <Route path="/dashboard" element ={
           <PrivateRoute isLoggedIn={isLoggedIn}> </PrivateRoute>
-        } />
+        } /> */}
         <Route path="/updatepassword/:id" element={<Updatepassword/>}></Route>
         <Route path="/VerifyEmail" element={<VerifyEmail/>} ></Route>
         {/* <Route path="/dashboard/my-profile" element={<Myprofile></Myprofile>}></Route> */}
-        <Route path="/dashboard" element={<About/>}></Route>
+        <Route path="/dashboard" element={<Dashboard/>}></Route>
       </Routes>
     </div>
   );
