@@ -8,13 +8,11 @@ import { Provider } from "react-redux";
 import { configureStore } from "@reduxjs/toolkit";
 import Rootreducer from "./Reducer/index";
 import CategoryContext from "./context/CategoryContext";
-
 const store=configureStore(
     {
         reducer:Rootreducer,
     }
 );
-
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
 <Provider store={store}>
