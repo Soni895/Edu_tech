@@ -7,14 +7,16 @@ const Updatepassword = () => {
      
     const dispatch = useDispatch();
     const location= useLocation();
+    console.log(location.pathname);
 const Token= location.pathname.split('/').at(-1);
-
+console.log(Token);
     const [formdata,setformdata]=useState(
         {
             ConfirmPassword:"",Password:""
         }
     )
    const {loading}= useSelector((state)=>state.Auth);  
+   console.log(loading);
    
    const [showpassword,setShowpassword]= useState(false);
    const [showconfirmpassword,setShowconfirmpassword]= useState(false);

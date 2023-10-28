@@ -8,22 +8,22 @@ import { Categories } from "../apis";
 
 
 
-export const getpasswordresettoken=(email,setemailsent)=>
+export const getpasswordresettoken=(Email,setemailsent)=>
 {
-    console.log("email=>",email);
+    console.log("email=>",Email);
     return async(dispatch)=>
     {
         dispatch(setLoading(true));
         try {
             console.log("endpoints.RESETPASSWORD_API=>",endpoints.RESETPASSTOKEN_API);
-            const response= await ApiConnector("post",endpoints.RESETPASSTOKEN_API, {email})
+            const response= await ApiConnector("POST",endpoints.RESETPASSTOKEN_API, {Email})
             console.log ("response=>",response);
            
 
-            if(!response.data.success)
-            {
-                throw new Error(response.data.message);
-            }
+            // if(!response.data.success)
+            // {
+            //     throw new Error(response.data.message);
+            // }
             toast.success("Reset Email Sent");
             setemailsent(true);
 

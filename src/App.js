@@ -25,7 +25,7 @@ function App() {
         {/* <Route path="/dashboard" element ={
           <PrivateRoute isLoggedIn={isLoggedIn}> </PrivateRoute>
         } /> */}
-        <Route path="/updatepassword/:id" element={<Updatepassword/>}></Route>
+        <Route path="/Update-Password/:id" element={<Updatepassword/>}></Route>
         <Route path="/VerifyEmail" element={<VerifyEmail/>} ></Route>
         {/* <Route path="/dashboard/my-profile" element={<Myprofile></Myprofile>}></Route> */}
         <Route path="/dashboard" element={<Dashboard/>}></Route>
