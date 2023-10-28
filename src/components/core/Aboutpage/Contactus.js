@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { set, useForm } from 'react-hook-form';
+import {  useForm } from 'react-hook-form';
 import { ApiConnector } from '../../../services/apiconnector';
 import {contactusEndpoint} from "../../../services/apis";
 import  code from "../../../data/countrycode.json";
@@ -50,7 +50,6 @@ const submithandler=async(data)=>
     setloading(false);
 
 }
-console.log(code);
 
   return (
    <div className=' text-black' >
