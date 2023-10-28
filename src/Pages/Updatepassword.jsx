@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { ResetPassword } from '../services/operations/AuthAPI';
 import { AiFillEyeInvisible,AiFillEye } from 'react-icons/ai';
 const Updatepassword = () => {
      
     const dispatch = useDispatch();
     const location= useLocation();
+    const navigate=useNavigate();
     console.log(location.pathname);
 const Token= location.pathname.split('/').at(-1);
 console.log(Token);
@@ -38,6 +39,10 @@ const handleonsubmit=(event)=>{
 
     dispatch(ResetPassword(Token,formdata));
     console.log(formdata);
+    setTimeout(() => {
+        navigate("/login");
+        
+    }, 2000);
 
 }
 

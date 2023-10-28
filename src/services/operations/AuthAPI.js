@@ -5,14 +5,20 @@ import {endpoints} from "../apis";
 import { Categories } from "../apis";
 
 
+// Inside your component where you call ResetPassword
+
+
+
 
 
 
 export const getpasswordresettoken=(Email,setemailsent)=>
 {
+    
     console.log("email=>",Email);
     return async(dispatch)=>
     {
+        
         dispatch(setLoading(true));
         try {
             console.log("endpoints.RESETPASSWORD_API=>",endpoints.RESETPASSTOKEN_API);
@@ -42,16 +48,19 @@ export const getpasswordresettoken=(Email,setemailsent)=>
 export const  ResetPassword=(Token,{Password,ConfirmPassword})=>
 {
     console.log(Token,Password,ConfirmPassword);
+  
 
     return async(dispatch)=>
     {
+        
         dispatch(setLoading(true));
-
+       
         try {
             console.log("endpoints.RESETPASSWORD_API=>",endpoints.RESETPASSWORD_API);
             const response=await ApiConnector("post",endpoints.RESETPASSWORD_API, {Token,ConfirmPassword,Password})
             console.log(response);
             toast.success("password set");
+
             if(!response.data.success)
             {
                 throw new Error(response.data.message);
