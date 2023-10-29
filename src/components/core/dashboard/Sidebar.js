@@ -67,7 +67,16 @@ if(authloading||profileloading){
       </div>
       <button 
       onClick={ ()=> {
-        
+        setconfirmation(
+          {
+            data1:"Are you Sure ?",
+            data2: " You will be logged out of your Account",
+            btntext1: "Logout",
+            btntext2:"Cancel",
+            // btnhandler1:,
+            // btnhandler2:
+          }
+        )
         // pending
 
       }}

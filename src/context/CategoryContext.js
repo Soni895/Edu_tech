@@ -6,10 +6,6 @@ export const categorycontext= createContext();
 
 const CategoryContext = ({children}) => {
 
-function check(data)
-{
-  console.log(data);
-}
 
 const value={
   getAllcategory,
