@@ -32,7 +32,10 @@ if(authloading||profileloading){
       {
         sidebarLinks.map((link)=>
         {
-          if(link.type && User?.Accouttype!==link.type)
+          
+          console.log("link=>",link,"\n");
+          console.log(link.type,User?.Accouttype);
+          if(!link.type && User?.Accouttype!==link.type)
           {
             return null;
           }

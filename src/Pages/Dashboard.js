@@ -24,9 +24,9 @@ const Dashboard = () => {
     <div className='flex justify-center items-center text-white text-3xl h-full'>
   
    <Sidebar></Sidebar>
-   {/* <div>
+   <div>
     <Outlet/>
-   </div> */}
+   </div>
 
 
 

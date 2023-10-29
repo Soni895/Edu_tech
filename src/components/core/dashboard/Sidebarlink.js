@@ -13,8 +13,8 @@ function Sidebarlink({link}) {
 
     const matchroute=(path)=>
     {
-        console.log(path);
-        console.log(location.pathname);
+        console.log("path=>",path);
+        console.log("location.pathname=>",location.pathname);
          return location.pathname === path;
     }
 
@@ -26,7 +26,7 @@ function Sidebarlink({link}) {
             {
                 console.log("hi darshan soni");
             }}
-            className={`relative ${matchroute(link.path)?"bg-yellow-400":" bg-transparent"}`}
+            className={`relative ${matchroute(link.path)?" text-yellow-5":" bg-transparent"}`}
         >
         <span className={`absolute top-0 left-0  h-full  w-[0..2rem] ${matchroute(link.path)?" opacity-100":" opacity-0"  }`}>
         </span>
