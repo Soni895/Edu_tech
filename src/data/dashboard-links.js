@@ -47,3 +47,18 @@ export const sidebarLinks = [
     icon: "VscHistory",
   },
 ];
+export const Profilelink=[
+  {
+    id: 1,
+    name: "Setting",
+    path: "/dashboard/Setting",
+    icon: "VscSettingsGear",
+  },
+  {
+    id: 2,
+    name: "Log Out",
+    path: "/dashboard/Log-Out",
+    icon: "VscAccount",
+  },
+
+]
