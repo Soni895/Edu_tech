@@ -5,10 +5,14 @@ import Sidebar from "../components/core/dashboard/Sidebar"
 
 const Dashboard = () => {
 
-   const {laoding:authloading}=useSelector((state)=>state.Auth);
-   const  {laoding:profileloading}=useSelector((state)=>state.profile);
-   if(authloading||profileloading){
+   const {loading:authloading}=useSelector((state)=>state.Auth);
+   const  {loading:profileloading}=useSelector((state)=>state.Profile);
+
+   console.log(authloading,profileloading);
+
+   if(profileloading||profileloading){
     return(
+
       <div>
         laoding...
       </div>
@@ -20,9 +24,9 @@ const Dashboard = () => {
     <div className='flex justify-center items-center text-white text-3xl h-full'>
   
    <Sidebar></Sidebar>
-   <div>
+   {/* <div>
     <Outlet/>
-   </div>
+   </div> */}
 
 
 

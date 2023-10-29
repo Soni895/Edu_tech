@@ -6,16 +6,18 @@ import Sidebarlink from './Sidebarlink';
 
 function Sidebar() {
 
-    const {user,loading:profileloading}=useSelector((state)=>
+    const {User,loading:profileloading}=useSelector((state)=>
     {
 
         return(
 
         state.Profile
         )
-    })
+    });
 const {loading:authloading}=useSelector(state=>state.Auth);
 
+console.log("User authloading,profileloading =>",User,authloading,profileloading);
+console.log("sidebarLinks=>",sidebarLinks);
 if(authloading||profileloading){
     return(
       <div>
@@ -28,14 +30,14 @@ if(authloading||profileloading){
     <div>
     <div>
       {
-        sidebarLinks.map((link,index)=>
+        sidebarLinks.map((link)=>
         {
-          if(link.type   && user.accouttype!==link.type)
+          if(link.type && User?.Accouttype!==link.type)
           {
             return null;
           }
           return (
-            <Sidebarlink></Sidebarlink>
+            <Sidebarlink key={link.id} link={link}></Sidebarlink>
           )
         })
       }

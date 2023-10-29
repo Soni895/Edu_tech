@@ -11,7 +11,7 @@ export const sidebarLinks = [
     path: "/dashboard/my-profile",
     icon: "VscAccount",
   },
-  {
+  {   
     id: 2,
     name: "Dashboard",
     path: "/dashboard/instructor",

@@ -7,7 +7,7 @@ const  initialState={
 };
 const CartSlice=createSlice(
     {
-        name:"Cart",
+         name:"Cart",
         initialState,
         reducers: {
            setTotalItems(state,value)
