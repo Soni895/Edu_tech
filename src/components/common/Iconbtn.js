@@ -4,20 +4,21 @@ function Iconbtn({
     text,
     onclick,
     children,
-    disable,
+    disable=false,
     outline,
     type
-}) {
+})
+ {
+    console.log(text,children,onclick);
   return (
   
     <button 
     
     disabled={disable}
-    type={type}
     onClick={onclick}
      >
      {
-        children ?(
+       ! children ?(
             <>
             <span>
                 {text}

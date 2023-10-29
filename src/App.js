@@ -11,6 +11,7 @@ import ResetPassword from "./Pages/ResetPassword";
 import Updatepassword from "./Pages/Updatepassword";
 import VerifyEmail from "./Pages/VerifyEmail";
 import About from "./Pages/About";
+import Myprofile from "./components/core/dashboard/Myprofile";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
@@ -27,7 +28,7 @@ function App() {
         } /> */}
         <Route path="/Update-Password/:id" element={<Updatepassword/>}></Route>
         <Route path="/VerifyEmail" element={<VerifyEmail/>} ></Route>
-        {/* <Route path="/dashboard/my-profile" element={<Myprofile></Myprofile>}></Route> */}
+        <Route path="/dashboard/my-profile" element={<Myprofile></Myprofile>}></Route>
         <Route path="/dashboard" element={<Dashboard/>}></Route>
       </Routes>
     </div>

@@ -1,6 +1,7 @@
 import React from 'react'
 import Iconbtn from './Iconbtn'
 const Modal = ({modaldata}) => {
+    console.log("modaldata=>",modaldata);
   return (
     <div>
      <div>
