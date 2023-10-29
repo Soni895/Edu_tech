@@ -28,8 +28,10 @@ function App() {
         } /> */}
         <Route path="/Update-Password/:id" element={<Updatepassword/>}></Route>
         <Route path="/VerifyEmail" element={<VerifyEmail/>} ></Route>
+       
+        <Route path="/dashboard" element={<Dashboard/>}>
         <Route path="/dashboard/my-profile" element={<Myprofile></Myprofile>}></Route>
-        <Route path="/dashboard" element={<Dashboard/>}></Route>
+        </Route>
       </Routes>
     </div>
   );
