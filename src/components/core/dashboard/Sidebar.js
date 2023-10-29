@@ -58,9 +58,7 @@ if(authloading||profileloading){
             link.id===1?( 
               <Sidebarlink key={link.id} link={link}></Sidebarlink>
               ):
-            ( <Logout key={link.id} link={link}></Logout>)
-
-          
+            ( <Logout key={link.id} link={link}></Logout>)          
          )
        }
        
