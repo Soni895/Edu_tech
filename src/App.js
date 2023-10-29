@@ -12,6 +12,8 @@ import Updatepassword from "./Pages/Updatepassword";
 import VerifyEmail from "./Pages/VerifyEmail";
 import About from "./Pages/About";
 import Myprofile from "./components/core/dashboard/Myprofile";
+import Setting from "./components/core/dashboard/setting/Setting";
+import Enrolledcourses from "./components/core/dashboard/Enrolledcourses";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
@@ -30,7 +32,9 @@ function App() {
         <Route path="/VerifyEmail" element={<VerifyEmail/>} ></Route>
        
         <Route path="/dashboard" element={<Dashboard/>}>
-        <Route path="/dashboard/my-profile" element={<Myprofile></Myprofile>}></Route>
+        <Route path="/dashboard/my-profile" element={<Myprofile></Myprofile>}/>
+          <Route path="/dashboard/Setting" element={<Setting/>}/>
+          <Route path="/dashboard/enrolled-courses" element={<Enrolledcourses/>}/>
         </Route>
       </Routes>
     </div>

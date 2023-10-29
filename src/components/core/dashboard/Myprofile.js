@@ -36,7 +36,9 @@ function Myprofile() {
 
       {/* section 2 */}
 
-      <div></div>
+      <div>
+        
+      </div>
     </div>
   );
 }
