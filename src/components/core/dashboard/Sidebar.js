@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 // import {logout} from "../../../../services/operations/AuthAPI";
 import { useDispatch, useSelector } from 'react-redux';
 import  {sidebarLinks,Profilelink} from "../../../data/dashboard-links";
@@ -7,9 +7,11 @@ import { useNavigate } from 'react-router';
 
 
 
-const dispatch=useDispatch();
-const navigate=useNavigate();
+
 function Sidebar() {
+  const dispatch=useDispatch();
+const navigate=useNavigate();
+const [confirmation,setconfirmation]=useState(null);
 
     const {User,loading:profileloading}=useSelector((state)=>
     {
@@ -64,6 +66,11 @@ if(authloading||profileloading){
        
       </div>
       <button 
+      onClick={ ()=> {
+        
+        // pending
+
+      }}
       
       
       ></button>
