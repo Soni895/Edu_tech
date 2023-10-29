@@ -4,7 +4,8 @@ import  {sidebarLinks,Profilelink} from "../../../data/dashboard-links";
 import Sidebarlink from './Sidebarlink';
 import { useNavigate } from 'react-router';
 import {logout} from "../../../services/operations/AuthAPI";
-import {MdLogout} from  "react-icons/md";
+import {VscSignOut} from  "react-icons/vsc";
+import Modal from '../../common/Modal';
 
 
 
@@ -82,12 +83,18 @@ if(authloading||profileloading){
 
       }}>
         <div className='flex gap-2'>
-        <MdLogout></MdLogout>
+        <VscSignOut></VscSignOut>
         <div>Logout</div>
 
         </div>
       </button>
     </div>
+
+    {
+      confirmation &&(
+        <Modal modaldata={confirmation}></Modal>
+      )
+    }
    
  
     </div>
