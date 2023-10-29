@@ -4,7 +4,7 @@ function Enrolledcourses() {
   return (
     <div>
     
-    
+    <div>Enrolledcourses</div>
     </div>
   )
 }
