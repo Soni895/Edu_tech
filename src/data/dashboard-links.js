@@ -58,7 +58,7 @@ export const Profilelink=[
     id: 2,
     name: "Log Out",
     path: "/dashboard/Log-Out",
-    icon: "VscAccount",
+    icon: "MdLogout",
   },
 
 ]

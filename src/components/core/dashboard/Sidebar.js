@@ -3,6 +3,7 @@ import React from 'react'
 import { useSelector } from 'react-redux';
 import  {sidebarLinks,Profilelink} from "../../../data/dashboard-links";
 import Sidebarlink from './Sidebarlink';
+import Logout from './Logout';
 
 function Sidebar() {
 
@@ -57,7 +58,7 @@ if(authloading||profileloading){
             link.id===1?( 
               <Sidebarlink key={link.id} link={link}></Sidebarlink>
               ):
-            ( <Sidebarlink key={link.id} link={link}></Sidebarlink>)
+            ( <Logout key={link.id} link={link}></Logout>)
 
           
          )
