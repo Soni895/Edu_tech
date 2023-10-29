@@ -2,6 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router';
 import Iconbtn from '../../common/Iconbtn';
+import {TbEdit} from "react-icons/tb";
 
 function Myprofile() {
     const {User}=useSelector((state)=>state.Profile);
@@ -28,7 +29,9 @@ function Myprofile() {
         text={"edit"}
         onclick={()=>{
             navigate("/dashboard/Setting")
-        }}></Iconbtn>
+        }}>
+            <TbEdit></TbEdit>
+        </Iconbtn>
       </div>
 
       {/* section 2 */}

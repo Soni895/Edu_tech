@@ -18,16 +18,18 @@ function Iconbtn({
     onClick={onclick}
      >
      {
-       ! children ?(
-            <>
+        children ?(
+            <div className='flex gap-2 items-center justify-center'>
             <span>
                 {text}
             </span>
             {children}
-            </>
+            </div>
           
         ):
-        (<div>hi</div>)
+        ( <span>
+                {text}
+            </span>)
      }
         
     </button>
