@@ -1,10 +1,14 @@
 import React from 'react'
 // import {logout} from "../../../../services/operations/AuthAPI";
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import  {sidebarLinks,Profilelink} from "../../../data/dashboard-links";
 import Sidebarlink from './Sidebarlink';
-import Logout from './Logout';
+import { useNavigate } from 'react-router';
 
+
+
+const dispatch=useDispatch();
+const navigate=useNavigate();
 function Sidebar() {
 
     const {User,loading:profileloading}=useSelector((state)=>
@@ -53,16 +57,16 @@ if(authloading||profileloading){
 
       <div className='flex flex-col'>
        {
-        Profilelink.map((link)=>
-          
-            link.id===1?( 
+        Profilelink.map((link)=> ( 
               <Sidebarlink key={link.id} link={link}></Sidebarlink>
-              ):
-            ( <Logout key={link.id} link={link}></Logout>)          
-         )
+              ))
        }
        
       </div>
+      <button 
+      
+      
+      ></button>
     </div>
    
  
