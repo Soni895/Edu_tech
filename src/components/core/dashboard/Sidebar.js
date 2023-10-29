@@ -65,7 +65,7 @@ if(authloading||profileloading){
       </div>
     </div>
    
-
+ 
     </div>
   )
 }
