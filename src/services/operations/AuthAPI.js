@@ -90,6 +90,11 @@ export const sendotp = () => {
  
 }
 
+export const logout= ()=>
+{
+    
+}
+
 export const  getAllcategory= async(setsublink)=>
 {
    try {

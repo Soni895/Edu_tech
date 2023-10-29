@@ -1,10 +1,10 @@
 import React, { useState } from 'react'
-// import {logout} from "../../../../services/operations/AuthAPI";
 import { useDispatch, useSelector } from 'react-redux';
 import  {sidebarLinks,Profilelink} from "../../../data/dashboard-links";
 import Sidebarlink from './Sidebarlink';
 import { useNavigate } from 'react-router';
-
+import {logout} from "../../../services/operations/AuthAPI";
+import {MdLogout} from  "react-icons/md";
 
 
 
@@ -12,6 +12,7 @@ function Sidebar() {
   const dispatch=useDispatch();
 const navigate=useNavigate();
 const [confirmation,setconfirmation]=useState(null);
+console.log("confirmation=>",confirmation);
 
     const {User,loading:profileloading}=useSelector((state)=>
     {
@@ -73,16 +74,19 @@ if(authloading||profileloading){
             data2: " You will be logged out of your Account",
             btntext1: "Logout",
             btntext2:"Cancel",
-            // btnhandler1:,
-            // btnhandler2:
+            btnhandler1:()=>dispatch(logout(navigate)),
+            btnhandler2:()=>setconfirmation(null)
           }
         )
-        // pending
+       
 
-      }}
-      
-      
-      ></button>
+      }}>
+        <div className='flex gap-2'>
+        <MdLogout></MdLogout>
+        <div>Logout</div>
+
+        </div>
+      </button>
     </div>
    
  
