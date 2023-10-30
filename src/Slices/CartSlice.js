@@ -17,21 +17,21 @@ const CartSlice = createSlice({
   name: "Cart",
   initialState,
   reducers: {
-    setTotalItems: (state, value)=> {
-          state.user = value.payload;
+    setTotalItems: (state, value) => {
+      state.user = value.payload;
     },
-    removeitem:()=> {},
+    removeitem: () => {},
 
     //    add to cart
     //    remove to cart
     //    reset cart
 
-    Addtocart:(state, value)=> {
+    Addtocart: (state, value) => {
       const Course = value.payload;
       const index = state.Cart.findIndex((item) => item._id === Course._id);
 
       // printing the data
-      console.log("value=>",value);
+      console.log("value=>", value);
       console.log("Course=>", Course);
       console.log("state=>", state);
       console.log("index=>", index);
@@ -41,55 +41,45 @@ const CartSlice = createSlice({
         return;
       }
 
-       // If the course is not in the cart, add it to the cart
+      // If the course is not in the cart, add it to the cart
       state.Cart.push(Course);
-       // Update the total quantity and price
+      // Update the total quantity and price
       state.Totalitems++;
-      state.Total+=Course.Price;
+      state.Total += Course.Price;
 
-        // Update to localstorage
-        localStorage.setItem("Cart",JSON.stringify(state.Cart));
-        localStorage.setItem("Total",JSON.stringify(state.Total));
-        localStorage.setItem("Totalitems",JSON.stringify(state.Totalitems));
-       // show toast
-       toast.success("Course added to cart");
-
+      // Update to localstorage
+      localStorage.setItem("Cart", JSON.stringify(state.Cart));
+      localStorage.setItem("Total", JSON.stringify(state.Total));
+      localStorage.setItem("Totalitems", JSON.stringify(state.Totalitems));
+      // show toast
+      toast.success("Course added to cart");
     },
-    Removetocart:(state, value)=> {
-
+    Removetocart: (state, value) => {
       const CourseId = value.payload;
       const index = state.Cart.findIndex((item) => item._id === CourseId);
 
       // printing the data
-      console.log("value=>",value);
-      console.log("Course=>",CourseId);
+      console.log("value=>", value);
+      console.log("Course=>", CourseId);
       console.log("state=>", state);
       console.log("index=>", index);
       if (index >= 0) {
-
-            
-    
-      // Update the total quantity and price
-     state.Totalitems--;
-     state.Total-=state.Cart[index].Price;
-     state.Cart.splice(index,1);
-       // Update to localstorage
-       localStorage.setItem("Cart",JSON.stringify(state.Cart));
-       localStorage.setItem("Total",JSON.stringify(state.Total));
-       localStorage.setItem("Totalitems",JSON.stringify(state.Totalitems));
-      // show toast
-      toast.success("Course removed from cart");
-       
-       
+        // Update the total quantity and price
+        state.Totalitems--;
+        state.Total -= state.Cart[index].Price;
+        state.Cart.splice(index, 1);
+        // Update to localstorage
+        localStorage.setItem("Cart", JSON.stringify(state.Cart));
+        localStorage.setItem("Total", JSON.stringify(state.Total));
+        localStorage.setItem("Totalitems", JSON.stringify(state.Totalitems));
+        // show toast
+        toast.success("Course removed from cart");
       }
-
-    
-     
     },
 
-         // complete
+    // complete
 
-    Resetcart: (state)=> {
+    Resetcart: (state) => {
       state.Cart = [];
       state.Total = 0;
       state.Totalitems = 0;
