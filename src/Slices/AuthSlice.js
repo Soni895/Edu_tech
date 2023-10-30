@@ -1,9 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { json } from 'react-router-dom';
 
-const  initialState={
-      Token:localStorage.getItem("Token")?(json.parse(localStorage.getItem("Token"))):(null),
-      signupData: null,
+const  initialState={ 
+      Token:localStorage.getItem("Token")?(JSON.parse(localStorage.getItem("Token"))):(null),
+      Signupdata: null,
       loading: false,
 }
 const AuthSlice=createSlice(
@@ -16,8 +16,8 @@ const AuthSlice=createSlice(
            {
             state.Token=value.payload;
            },
-           setLoading(state, value) {
-            state.loading = value.payload;
+           setloading(state, v) {
+            state.loading = v.payload;
           },
           setToken(state, value) {
             state.token = value.payload;

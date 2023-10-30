@@ -15,8 +15,12 @@ import Myprofile from "./components/core/dashboard/Myprofile";
 import Setting from "./components/core/dashboard/setting/Setting";
 import Enrolledcourses from "./components/core/dashboard/Enrolledcourses";
 import Cart from "./components/core/dashboard/cart/Cart.js";
+import { useSelector } from "react-redux";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const {User}=useSelector((state)=>state.Profile);
+  console.log(User);
   return (
     <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
     <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
