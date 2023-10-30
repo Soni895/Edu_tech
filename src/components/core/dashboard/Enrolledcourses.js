@@ -49,7 +49,7 @@ console.log(Enrollcourses);
             loading...
         </div>):(
             
-            !Enrollcourses?(<p>
+           ! Enrollcourses.length?(<p>
                 you have not enrolled any courses yet
             </p>):(
                 <div>
