@@ -15,6 +15,7 @@ function Rendercartcourses() {
       Category: "dats",
       rating: 3.9,
       RagingAndReviewCount: 5,
+      Price:2500
     },
   ];
 
@@ -43,11 +44,12 @@ function Rendercartcourses() {
             <div>
               <button className="flex gap-5" onClick={()=>
               {
-                dispatch(removeitem())
+                dispatch(removeitem(course._id))
               }}>
                 <RiDeleteBinLine />
                 <span>romove</span>
               </button>
+              <p> {course?.Price}</p>
             </div>
           </div>
         );
