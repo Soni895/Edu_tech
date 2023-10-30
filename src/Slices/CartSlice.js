@@ -17,11 +17,7 @@ const CartSlice = createSlice({
   name: "Cart",
   initialState,
   reducers: {
-    setTotalItems: (state, value) => {
-      state.user = value.payload;
-    },
-    removeitem: () => {},
-
+  
     //    add to cart
     //    remove to cart
     //    reset cart
