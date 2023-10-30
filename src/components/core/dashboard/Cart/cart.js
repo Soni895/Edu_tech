@@ -2,8 +2,8 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 
 function Cart() {
-    const {TotalItems,Total}=useSelector((state)=>state.Cart);
-    console.log(TotalItems,Total)
+    const {Totalitems,Total}=useSelector((state)=>state.Cart);
+    console.log(Totalitems,Total)
   return (
 
    
