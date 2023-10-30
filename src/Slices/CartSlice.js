@@ -15,6 +15,10 @@ const CartSlice=createSlice(
            setTotalItems(state,value)
            {
             state.user=value.payload;
+           },
+           removeitem()
+           {
+             console.log("hi");
            }
 
 
@@ -26,5 +30,5 @@ const CartSlice=createSlice(
 
     }
 )
-export const {setTotalItems}=CartSlice.actions;
+export const {setTotalItems,removeitem}=CartSlice.actions;
 export default CartSlice.reducer;

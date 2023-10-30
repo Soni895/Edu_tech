@@ -1,18 +1,22 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useDispatch,useSelector } from "react-redux";
 import ReactStars from "react-rating-stars-component";
+import { RiDeleteBinLine } from "react-icons/ri";
+import {removeitem} from "../../../../Slices/CartSlice"
 
 function Rendercartcourses() {
-//   const { Cart } = useSelector((state) => state.Cart);
-const Cart=[
-    {
-        thumbmail:"hidarshan soni",
-        courseName:"webdev",
-        Category:"dats",
-        rating:"3.9",
+    const dispatch=useDispatch();
 
-    }
-]
+  //   const { Cart } = useSelector((state) => state.Cart);
+  const Cart = [
+    {
+      thumbmail: "hidarshan soni",
+      courseName: "webdev",
+      Category: "dats",
+      rating: 3.9,
+      RagingAndReviewCount: 5,
+    },
+  ];
 
   return (
     <div>
@@ -30,11 +34,20 @@ const Cart=[
                 count={5}
                 edit={false}
                 isHalf={true}
-                value={course.rating}
-                
+                value={course?.rating}
                 size={40}
                 activeColor="#ffd700"
               />
+              <span> {course?.RagingAndReviewCount.length}</span>
+            </div>
+            <div>
+              <button className="flex gap-5" onClick={()=>
+              {
+                dispatch(removeitem())
+              }}>
+                <RiDeleteBinLine />
+                <span>romove</span>
+              </button>
             </div>
           </div>
         );

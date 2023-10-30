@@ -1,9 +1,10 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
+import {  useSelector } from 'react-redux'
 import Rendercartcourses from './Rendercartcourses';
 import Rendertotalamout from './Rendertotalamout';
 
 function Cart() {
+    
     const {Totalitems,Total}=useSelector((state)=>state.Cart);
     console.log(Totalitems,Total)
   return (
