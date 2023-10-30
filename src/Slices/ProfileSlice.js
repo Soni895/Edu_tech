@@ -1,8 +1,9 @@
 import { createSlice } from '@reduxjs/toolkit';
+import { json } from 'react-router';
 
 
 const  initialState={
-    User: localStorage.getItem("user") ? JSON.parse(localStorage.getItem("user")) : null,
+    User: localStorage.getItem("User") ? JSON.parse(localStorage.getItem("User")) : null,
     loading: false,
 }
 const ProfileSlice=createSlice(
@@ -10,11 +11,20 @@ const ProfileSlice=createSlice(
         name:"Profile",
         initialState,
         reducers: {
-           setUser(state,value)
+           Setuser(state,value)
            {
+            console.log("before update=>" ,state);
             state.User=value.payload;
+            const User= value.payload;
+            console.log("User=>",User);
+            console.log(" after : State,Value=>",state,value);
+            
+            // add in local storage
+            localStorage.setItem("User",JSON.stringify(User));
+
+
            },
-           setLoading(state, value) {
+           Setloading(state, value) {
             state.loading = value.payload;
           },
           },
