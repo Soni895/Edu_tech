@@ -15,7 +15,7 @@ function Cart() {
         </h1>
         <p>{Totalitems} in your cart</p>
         {
-            Total>0 ?(
+           ! Total>0 ?(
                 <div>
                     <Rendercartcourses/>
                     <Rendertotalamout/>

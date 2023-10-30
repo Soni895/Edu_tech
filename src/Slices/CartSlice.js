@@ -4,7 +4,8 @@ import { json } from 'react-router-dom';
 
 const  initialState={
    Totalitems:localStorage.getItem("totalItems")?json.parse(localStorage.getItem("totalItems")):0,
-   Total:null
+   Total:null,
+   Cart:null,
 };
 const CartSlice=createSlice(
     {
