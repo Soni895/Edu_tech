@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch,useSelector } from "react-redux";
 import ReactStars from "react-rating-stars-component";
 import { RiDeleteBinLine } from "react-icons/ri";
-import {removeitem} from "../../../../Slices/CartSlice"
+import {Removetocart} from "../../../../Slices/CartSlice"
 
 function Rendercartcourses() {
     const dispatch=useDispatch();
@@ -44,7 +44,7 @@ function Rendercartcourses() {
             <div>
               <button className="flex gap-5" onClick={()=>
               {
-                dispatch(removeitem(course._id))
+                dispatch(Removetocart(course._id))
               }}>
                 <RiDeleteBinLine />
                 <span>romove</span>

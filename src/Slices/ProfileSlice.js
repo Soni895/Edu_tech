@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { json } from 'react-router';
+
 
 
 const  initialState={
@@ -21,6 +21,7 @@ const ProfileSlice=createSlice(
             
             // add in local storage
             localStorage.setItem("User",JSON.stringify(User));
+            
 
 
            },

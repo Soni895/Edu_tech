@@ -2,7 +2,7 @@ import "./App.css";
 import { Route, Router, Routes } from "react-router-dom";
 import Home from "./Pages/Home";
 import Signup from "./Pages/Signup";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Navbar from "./components/common/Navbar";
 import Login from "./Pages/Login"
 import Dashboard from "./Pages/Dashboard"
@@ -17,6 +17,12 @@ import Enrolledcourses from "./components/core/dashboard/Enrolledcourses";
 import Cart from "./components/core/dashboard/cart/Cart.js";
 import { useSelector } from "react-redux";
 function App() {
+
+useEffect(()=>{
+  console.log("localStorage=>",localStorage);
+  console.log("sessionStorage=>",sessionStorage);
+});
+
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const {User}=useSelector((state)=>state.Profile);
