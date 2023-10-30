@@ -11,7 +11,7 @@ function Cart() {
         <h1>
             Your Cart
         </h1>
-        <p>{TotalItems}</p>
+        <p>{Totalitems}</p>
     </div>
   )
 }
