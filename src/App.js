@@ -14,6 +14,7 @@ import About from "./Pages/About";
 import Myprofile from "./components/core/dashboard/Myprofile";
 import Setting from "./components/core/dashboard/setting/Setting";
 import Enrolledcourses from "./components/core/dashboard/Enrolledcourses";
+import Cart from "./components/core/dashboard/cart/Cart.js";
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   return (
@@ -35,6 +36,7 @@ function App() {
         <Route path="/dashboard/my-profile" element={<Myprofile></Myprofile>}/>
           <Route path="/dashboard/Setting" element={<Setting/>}/>
           <Route path="/dashboard/enrolled-courses" element={<Enrolledcourses/>}/>
+          <Route path="/dashboard/cart" element={<Cart></Cart>}></Route>
         </Route>
       </Routes>
     </div>

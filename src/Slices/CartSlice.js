@@ -3,7 +3,8 @@ import { toast } from 'react-hot-toast';
 import { json } from 'react-router-dom';
 
 const  initialState={
-   TotalItems:localStorage.getItem("totalItems")?json.parse(localStorage.getItem("totalItems")):0
+   TotalItems:localStorage.getItem("totalItems")?json.parse(localStorage.getItem("totalItems")):0,
+   Total:null
 };
 const CartSlice=createSlice(
     {
