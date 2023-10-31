@@ -43,8 +43,6 @@ const handleonsubmit=(event)=>{
     console.log(formdata);
     setTimeout(() => {
         navigate("/login", { replace: true });
-       
-        
     }, 2000);
 
 }

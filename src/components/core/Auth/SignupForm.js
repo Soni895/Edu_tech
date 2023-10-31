@@ -5,6 +5,8 @@ import { useNavigate } from 'react-router-dom';
 
 
 const SignupForm = ({setIsLoggedIn}) => {
+
+    
     const navigate = useNavigate();
 
     const [formData, setFormData] = useState({
@@ -32,26 +34,36 @@ const SignupForm = ({setIsLoggedIn}) => {
 
     function submitHandler(event) {
         event.preventDefault();
+    console.log("formData=>",formData);
         if(formData.password !== formData.confirmPassword) {
             toast.error("Passwords do not match");
             return ;
         }
-
-        setIsLoggedIn(true);
-        toast.success("Account Created");
-        const accountData = {
-            ...formData
-        };
-
         const finalData = {
-            ...accountData,
+            ...formData,
             accountType
         }
+        console.log("printing Final account data=> ",finalData);
+        
+        // Setting signup data to state
+    // To be used after otp verification
+    // dispatch(setSignupData(signupData))
+    // Send OTP to user for verification
+    // dispatch(sendotp(formData.email, navigate));
+    
+    
+    // reset data
 
-        console.log("printing Final account data ");
-        console.log(finalData);
-
-        navigate("/dashboard");
+    setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+        confirmPassword: "",
+      })
+      setAccountType("Student")
+        
+        navigate("/dashboard/my-profile");
 
     }
 

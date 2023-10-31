@@ -18,13 +18,16 @@ import Cart from "./components/core/dashboard/cart/Cart.js";
 import { useSelector } from "react-redux";
 function App() {
 
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
 useEffect(()=>{
   console.log("localStorage=>",localStorage);
   console.log("sessionStorage=>",sessionStorage);
   console.log("Printing base url: ",process.env.REACT_APP_Base_Url);
+  console.log("islogin=>",isLoggedIn);
 });
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+ 
 
   const {User}=useSelector((state)=>state.Profile);
   console.log("User=>",User);

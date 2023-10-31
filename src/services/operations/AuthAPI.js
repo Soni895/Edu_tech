@@ -5,6 +5,7 @@ import {endpoints} from "../apis";
 import { Categories } from "../apis";
 
 
+
 // Inside your component where you call ResetPassword
 
 
@@ -43,6 +44,8 @@ export const getpasswordresettoken=(Email,setemailsent)=>
 }
 export const  ResetPassword=(Token,{Password,ConfirmPassword})=>
 {
+
+    
     console.log(Token,Password,ConfirmPassword);
   
 
@@ -62,6 +65,8 @@ export const  ResetPassword=(Token,{Password,ConfirmPassword})=>
             {
                 throw new Error(response.data.message);
             }
+
+           
         } 
         
          catch (error) {
@@ -72,6 +77,7 @@ export const  ResetPassword=(Token,{Password,ConfirmPassword})=>
         }
 
         dispatch(setloading(false));
+      
     }
 }
 
@@ -83,7 +89,11 @@ export const signup= ()=>
 }
 
 
-export const sendotp = () => {
+export const sendotp = (email,navigate) => {
+    return async (dispatch)=>
+    {
+        console.log("otp handler call")
+    }
  
 }
 
