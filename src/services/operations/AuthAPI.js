@@ -92,8 +92,7 @@ export const Signup= ()=>
 
 export const Sendotp = (email) => {
 
-    const {signupData}=useSelector((state)=>state.Auth);
-console.log("signupData=>",signupData);
+
 
     return async (dispatch)=>
     {
