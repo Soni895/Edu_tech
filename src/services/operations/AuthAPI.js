@@ -8,10 +8,6 @@ import { Categories } from "../apis";
 // Inside your component where you call ResetPassword
 
 
-
-
-
-
 export const getpasswordresettoken=(Email,setemailsent)=>
 {
     
@@ -95,11 +91,11 @@ export const logout= ()=>
     
 }
 
-export const  getAllcategory= async(setsublink)=>
+export  const  getAllcategory= async(setsublink)=>
 {
    try {
-    const response= await ApiConnector("Get",Categories.Category_Api);
-    console.log("Category_Api=>",Categories.Category_Api);
+    const response= await ApiConnector("Get",Categories.CATEGORIES_API);
+    console.log("Category_Api=>",Categories.CATEGORIES_API);
     console.log("response=>",response);
    const Description= response?.data?.response;
    console.log("Description=>",Description);

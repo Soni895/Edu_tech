@@ -15,12 +15,15 @@ const AuthSlice=createSlice(
            setToken(state,value)
            {
             state.Token=value.payload;
+            localStorage.setItem("Token",JSON.stringify(state.Token));
+
            },
            setloading(state, value) {
             state.loading = value.payload;
           },
-          setToken(state, value) {
-            state.token = value.payload;
+          setSignupdata(state, value) {
+            state.Signupdata = value.payload;
+            
           },
 
           },
