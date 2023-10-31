@@ -61,7 +61,6 @@ const SignupForm = ({setIsLoggedIn}) => {
     // dispatch(sendotp(formData.email, navigate));
 
     
-    
     // reset data
 
     setFormData({
