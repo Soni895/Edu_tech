@@ -8,7 +8,8 @@ const Updatepassword = () => {
     const dispatch = useDispatch();
     const location= useLocation();
     const navigate=useNavigate();
-    
+
+
     console.log("location.pathname=>",location.pathname);
 const Token= location.pathname.split('/').at(-1);
      console.log("Token=>",Token);
@@ -18,7 +19,7 @@ const Token= location.pathname.split('/').at(-1);
         }
     )
    const {loading}= useSelector((state)=>state.Auth);  
-   console.log(loading);
+   console.log("loading inside the update password=>",loading);
    
    const [showpassword,setShowpassword]= useState(false);
    const [showconfirmpassword,setShowconfirmpassword]= useState(false);
@@ -41,7 +42,8 @@ const handleonsubmit=(event)=>{
     dispatch(ResetPassword(Token,formdata));
     console.log(formdata);
     setTimeout(() => {
-        navigate("/login");
+        navigate("/login", { replace: true });
+       
         
     }, 2000);
 
@@ -51,7 +53,7 @@ const handleonsubmit=(event)=>{
     <div className='text-white'>
         {
             loading?(
-                <div>loading...</div>
+                <div className=' text-white text-4xl'>loading...</div>
             ):(
                 <div>
                     <h1> choose new password</h1>

@@ -48,14 +48,15 @@ export const  ResetPassword=(Token,{Password,ConfirmPassword})=>
 
     return async(dispatch)=>
     {
+        console.log("dispatch=>",dispatch);
         
         dispatch(setloading(true));
        
         try {
             console.log("endpoints.RESETPASSWORD_API=>",endpoints.RESETPASSWORD_API);
             const response=await ApiConnector("post",endpoints.RESETPASSWORD_API, {Token,ConfirmPassword,Password})
-            console.log(response);
-            toast.success("password set");
+            console.log("response resetpassowrd=>",response);
+            toast.success("password  reset successful");
 
             if(!response.data.success)
             {
