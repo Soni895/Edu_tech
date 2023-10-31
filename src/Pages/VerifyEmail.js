@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import OTPInput from "react-otp-input";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { sendotp,signup } from "../services/operations/AuthAPI";
+import { Sendotp,Signup } from "../services/operations/AuthAPI";
 const VerifyEmail = () => {
   const { signupdata, loading } = useSelector((state) => state.Auth);
   const dispatch=useDispatch();
@@ -31,7 +31,7 @@ const VerifyEmail = () => {
         confirmPassword,
       } = signupdata;
   
-    dispatch(signup( accountType,
+    dispatch(Signup( accountType,
         firstName,
         lastName,
         email,
@@ -67,7 +67,7 @@ const VerifyEmail = () => {
               <Link to={"/login"}> Back to Login</Link>
               <button onClick={()=>
               {
-                dispatch(sendotp(signupdata.email))
+                dispatch(Sendotp(signupdata.email))
               }}>resend it</button>
             </div>
         </div>

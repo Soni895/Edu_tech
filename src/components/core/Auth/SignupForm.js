@@ -2,12 +2,19 @@ import React, { useState } from 'react'
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import {toast} from "react-hot-toast"
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import {Sendotp} from "../../../services/operations/AuthAPI";
+
+import {setSignupData} from "../../../Slices/AuthSlice";
 
 
 const SignupForm = ({setIsLoggedIn}) => {
 
-    
+
+
+
     const navigate = useNavigate();
+    const dispatch= useDispatch();
 
     const [formData, setFormData] = useState({
         firstName:"",
@@ -33,6 +40,7 @@ const SignupForm = ({setIsLoggedIn}) => {
     }
 
     function submitHandler(event) {
+
         event.preventDefault();
     console.log("formData=>",formData);
         if(formData.password !== formData.confirmPassword) {
@@ -44,12 +52,15 @@ const SignupForm = ({setIsLoggedIn}) => {
             accountType
         }
         console.log("printing Final account data=> ",finalData);
+        dispatch(setSignupData(finalData));
+        dispatch(Sendotp(finalData.email));
         
         // Setting signup data to state
     // To be used after otp verification
     // dispatch(setSignupData(signupData))
     // Send OTP to user for verification
     // dispatch(sendotp(formData.email, navigate));
+
     
     
     // reset data
@@ -61,7 +72,7 @@ const SignupForm = ({setIsLoggedIn}) => {
         password: "",
         confirmPassword: "",
       })
-      setAccountType("Student")
+      setAccountType("Student");
         
         navigate("/dashboard/my-profile");
 

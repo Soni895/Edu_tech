@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { getpasswordresettoken } from "../services/operations/AuthAPI";
+import { Getpasswordresettoken } from "../services/operations/AuthAPI";
 
 function ResetPassword() {
   const dispatch = useDispatch();
@@ -16,7 +16,7 @@ function ResetPassword() {
   const handleonsubit = (event) => {
     event.preventDefault();
     console.log("handleonsubit called", email);
-    dispatch(getpasswordresettoken(email, setemailsent));
+    dispatch(Getpasswordresettoken(email, setemailsent));
   };
   return (
     <div className=" text-white flex justify-center items-center  h-screen w-screen">

@@ -21,7 +21,7 @@ const Navbar = ({ setIsLoggedIn, isLoggedIn }) => {
 
   // using context api
 
-  const { getAllcategory } = useContext(categorycontext);
+  const { GetAllcategory } = useContext(categorycontext);
 
   // verified
   console.log(
@@ -34,7 +34,7 @@ const Navbar = ({ setIsLoggedIn, isLoggedIn }) => {
 
   useEffect(() => {
     // make a function with arguments setsublink and  call
-    getAllcategory(setsublink);
+    GetAllcategory(setsublink);
   }, []);
 
   const location = useLocation();

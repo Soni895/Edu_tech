@@ -3,13 +3,14 @@ import { setloading } from "../../Slices/AuthSlice"
 import { ApiConnector } from "../apiconnector";
 import {endpoints} from "../apis";
 import { Categories } from "../apis";
+import { useSelector } from "react-redux";
 
 
 
 // Inside your component where you call ResetPassword
 
 
-export const getpasswordresettoken=(Email,setemailsent)=>
+export const Getpasswordresettoken=(Email,setemailsent)=>
 {
     
     console.log("email=>",Email);
@@ -23,10 +24,10 @@ export const getpasswordresettoken=(Email,setemailsent)=>
             console.log ("response=>",response);
            
 
-            // if(!response.data.success)
-            // {
-            //     throw new Error(response.data.message);
-            // }
+            if(!response.data.status)
+            {
+                throw new Error(response.data.message);
+            }
             toast.success("Reset Email Sent");
             setemailsent(true);
 
@@ -83,16 +84,20 @@ export const  ResetPassword=(Token,{Password,ConfirmPassword})=>
 
 
 
-export const signup= ()=>
+export const Signup= ()=>
 {
 
 }
 
 
-export const sendotp = (email,navigate) => {
+export const Sendotp = (email) => {
+
+    const {signupData}=useSelector((state)=>state.Auth);
+console.log("signupData=>",signupData);
+
     return async (dispatch)=>
     {
-        console.log("otp handler call")
+        console.log("otp handler call=>",email);
     }
  
 }
@@ -102,7 +107,7 @@ export const logout= ()=>
     
 }
 
-export  const  getAllcategory= async(setsublink)=>
+export  const  GetAllcategory= async(setsublink)=>
 {
    try {
     const response= await ApiConnector("Get",Categories.CATEGORIES_API);
