@@ -1,5 +1,5 @@
 import toast from "react-hot-toast";
-import { setLoading } from "../../Slices/AuthSlice"
+import { setloading } from "../../Slices/AuthSlice"
 import { ApiConnector } from "../apiconnector";
 import {endpoints} from "../apis";
 import { Categories } from "../apis";
@@ -14,8 +14,8 @@ export const getpasswordresettoken=(Email,setemailsent)=>
     console.log("email=>",Email);
     return async(dispatch)=>
     {
-        
-        dispatch(setLoading(true));
+
+        dispatch(setloading(true));
         try {
             console.log("endpoints.RESETPASSWORD_API=>",endpoints.RESETPASSTOKEN_API);
             const response= await ApiConnector("POST",endpoints.RESETPASSTOKEN_API, {Email})
@@ -36,7 +36,7 @@ export const getpasswordresettoken=(Email,setemailsent)=>
             
         }
 
-        dispatch(setLoading(false));
+        dispatch(setloading(false));
          
     }
      
@@ -49,7 +49,7 @@ export const  ResetPassword=(Token,{Password,ConfirmPassword})=>
     return async(dispatch)=>
     {
         
-        dispatch(setLoading(true));
+        dispatch(setloading(true));
        
         try {
             console.log("endpoints.RESETPASSWORD_API=>",endpoints.RESETPASSWORD_API);
@@ -70,7 +70,7 @@ export const  ResetPassword=(Token,{Password,ConfirmPassword})=>
             
         }
 
-        dispatch(setLoading(false));
+        dispatch(setloading(false));
     }
 }
 

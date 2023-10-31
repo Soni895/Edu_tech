@@ -8,9 +8,10 @@ const Updatepassword = () => {
     const dispatch = useDispatch();
     const location= useLocation();
     const navigate=useNavigate();
-    console.log(location.pathname);
+    
+    console.log("location.pathname=>",location.pathname);
 const Token= location.pathname.split('/').at(-1);
-console.log(Token);
+     console.log("Token=>",Token);
     const [formdata,setformdata]=useState(
         {
             ConfirmPassword:"",Password:""

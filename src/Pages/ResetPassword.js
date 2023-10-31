@@ -1,13 +1,15 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { getpasswordresettoken } from "../services/operations/AuthAPI";
 
 function ResetPassword() {
   const dispatch = useDispatch();
 
-  // const {loading}=useSelector((state)=>state.auth);
-  const loading = false;
+  const {loading}= useSelector((state)=>state.Auth);
+
+  console.log("loading inside reset password=>",loading);
+  
   const [emailsent, setemailsent] = useState(false);
   const [email, setemail] = useState("darshansoni895@gmail.com");
 
@@ -45,10 +47,17 @@ function ResetPassword() {
                 ></input>
               </label>
             )}
-
-            <button type="submit">
-              {!emailsent ? "Reset Your Password" : "Resend Email"}
+            {
+              !emailsent ?(
+                <button type="submit">
+                Reset Your Password
             </button>
+              ):( <button type="submit">
+              Resend Email
+            </button>)
+            }
+
+            
           </form>
 
           <div>
