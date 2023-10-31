@@ -21,12 +21,13 @@ function App() {
 useEffect(()=>{
   console.log("localStorage=>",localStorage);
   console.log("sessionStorage=>",sessionStorage);
+  console.log("Printing base url: ",process.env.REACT_APP_Base_Url);
 });
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const {User}=useSelector((state)=>state.Profile);
-  console.log(User);
+  console.log("User=>",User);
   return (
     <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
     <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
