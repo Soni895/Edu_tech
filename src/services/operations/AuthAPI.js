@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 
 
 
+
 // Inside your component where you call ResetPassword
 
 
@@ -84,21 +85,39 @@ export const  ResetPassword=(Token,{Password,ConfirmPassword})=>
 
 
 
-export const Signup= ()=>
-{
-
-}
 
 
 export const Sendotp = (email) => {
 
-
-
     return async (dispatch)=>
     {
         console.log("otp handler call=>",email);
+        const toastId = toast.loading("Loading...") ;
+        console.log("toastId=>",toastId);
+        dispatch(setloading(true));
+        try {
+            const response= await ApiConnector("post",endpoints.SENDOTP_API,{Email:email});
+               console.log("responseinside send otp=>",response);
+
+            
+        } catch (error) {
+
+            console.log("SENDOTP API ERROR............", error);
+            toast.error("Could Not Send OTP");
+            
+        }
+
+        dispatch(setloading(false))
+        await toast.dismiss(toastId);
+        toast.success("Otp send Successful");
+
     }
  
+}
+
+export const Signup= ()=>
+{
+
 }
 
 export const logout= ()=>

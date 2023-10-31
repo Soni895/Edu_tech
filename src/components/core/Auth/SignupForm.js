@@ -77,7 +77,7 @@ const SignupForm = ({setIsLoggedIn}) => {
       })
       setAccountType("Student");
         
-        navigate("/dashboard/my-profile");
+        navigate("/VerifyEmail");
 
     }
 
