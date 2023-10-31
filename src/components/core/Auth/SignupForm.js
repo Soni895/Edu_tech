@@ -11,10 +11,6 @@ import {setSignupData} from "../../../Slices/AuthSlice";
 const SignupForm = ({setIsLoggedIn}) => {
 
     
-   
-
-
-
 
     const navigate = useNavigate();
     const dispatch= useDispatch();
@@ -56,7 +52,7 @@ const SignupForm = ({setIsLoggedIn}) => {
         }
         console.log("printing Final account data=> ",finalData);
         dispatch(setSignupData(finalData));
-        dispatch(Sendotp(finalData.email));
+        dispatch(Sendotp(finalData.email,navigate));
         
         // Setting signup data to state
     // To be used after otp verification
@@ -77,7 +73,7 @@ const SignupForm = ({setIsLoggedIn}) => {
       })
       setAccountType("Student");
         
-        navigate("/VerifyEmail");
+        
 
     }
 

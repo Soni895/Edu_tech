@@ -87,7 +87,7 @@ export const  ResetPassword=(Token,{Password,ConfirmPassword})=>
 
 
 
-export const Sendotp = (email) => {
+export const Sendotp = (email,navigate) => {
 
     return async (dispatch)=>
     {
@@ -99,6 +99,11 @@ export const Sendotp = (email) => {
             const response= await ApiConnector("post",endpoints.SENDOTP_API,{Email:email});
                console.log("responseinside send otp=>",response);
 
+               if (!response.data.status==="OK") {
+                throw new Error(response.data.message)
+              }
+             
+
             
         } catch (error) {
 
@@ -106,10 +111,13 @@ export const Sendotp = (email) => {
             toast.error("Could Not Send OTP");
             
         }
+       
 
-        dispatch(setloading(false))
-        await toast.dismiss(toastId);
+        dispatch(setloading(false));
+
+        toast.dismiss(toastId);
         toast.success("Otp send Successful");
+        navigate("/VerifyEmail");
 
     }
  
