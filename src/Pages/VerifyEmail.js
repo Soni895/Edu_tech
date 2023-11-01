@@ -4,16 +4,20 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import { Sendotp,Signup } from "../services/operations/AuthAPI";
 const VerifyEmail = () => {
-  const { signupdata, loading } = useSelector((state) => state.Auth);
+  const { Signupdata, loading } = useSelector((state) => state.Auth);
   const dispatch=useDispatch();
-  const [otp,setotp]=useState("");
   const navigate=useNavigate();
+  const [otp,setotp]=useState("");
 
+  console.log("Signupdata=>",Signupdata);
+  
   useEffect(()=>
   {
-    if(!signupdata)
+    if(!Signupdata)
     {
-        // navigate("/signup");
+      console.log("Data is not found");
+        navigate("/signup");
+        
     }
 
   },[]);
@@ -29,7 +33,7 @@ const VerifyEmail = () => {
         email,
         password,
         confirmPassword,
-      } = signupdata;
+      } = Signupdata;
   
     dispatch(Signup( accountType,
         firstName,
@@ -37,6 +41,7 @@ const VerifyEmail = () => {
         email,
         password,
         confirmPassword,otp,navigate))
+   
 
   }
   return (
@@ -47,27 +52,27 @@ const VerifyEmail = () => {
         <div>
           <h1> verify Email</h1>
           <p>A verification code has been sent to you. Enter the code below</p>
-          <form  onSubmit={handleonsubmit}>
+          <form onSubmit={handleonsubmit}>
           <div>
           <OTPInput
           value={otp}
-          onChange={(e)=>
+          onChange={(value)=>
           {
-            setotp(e.target.value);
+            console.log(value);
+            setotp(value);
 
           }}
           numInputs={6}
-          renderInput={(props) => <input {...props} placeholder="-" renderSeparator={<span>"-</span>}/>}
+          renderInput={(props) => <input {...props} placeholder="-" renderseparator={<span>"-</span>}/>}
           ></OTPInput>
             </div>
             <button>verify Email</button>
-         
           </form>
           <div>
               <Link to={"/login"}> Back to Login</Link>
               <button onClick={()=>
               {
-                dispatch(Sendotp(signupdata.email))
+                dispatch(Sendotp(Signupdata.email))
               }}>resend it</button>
             </div>
         </div>

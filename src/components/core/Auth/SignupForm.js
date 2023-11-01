@@ -78,6 +78,7 @@ const SignupForm = ({setIsLoggedIn}) => {
 
 
   return (
+    
     <div>
         {/* student-Instructor tab */}
         <div

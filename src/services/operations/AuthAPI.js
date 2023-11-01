@@ -123,8 +123,22 @@ export const Sendotp = (email,navigate) => {
  
 }
 
-export const Signup= ()=>
+export const Signup= ( 
+    AccountType,
+    FirstName,
+    LastName,
+    Email,
+    Password,
+    ConfirmPassword,
+    Otp,
+    navigate)=>
 {
+    return async (dispatch)=>
+    {
+        console.log("signup data handler called");
+         console.log(dispatch);
+         
+    }
 
 }
 
