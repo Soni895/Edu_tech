@@ -1,8 +1,9 @@
 import toast from "react-hot-toast";
-import { setloading } from "../../Slices/AuthSlice"
+import { setloading,setToken} from "../../Slices/AuthSlice"
 import { ApiConnector } from "../apiconnector";
 import {endpoints} from "../apis";
 import { Categories } from "../apis";
+import {setUser} from "../../Slices/ProfileSlice";
 
 
 
@@ -84,6 +85,7 @@ export const Login= ({email:Email,password:Password},navigate)=>
 {
     return  async (dispatch)=>
     {
+        const toastId = toast.loading("Loading...")
         dispatch(setloading(true));
 
         console.log(" inside the login Auth API handler Email and password=>",Email,Password);
@@ -93,8 +95,10 @@ export const Login= ({email:Email,password:Password},navigate)=>
                 Email,Password
             });
             console.log(" login response=>",response);
+            dispatch(setToken(response.data.token));
+            dispatch(setUser(response?.data?.user));
             toast.success("Login sucecssful");
-            navigate("/dashboard/my-profile");
+            navigate("/dashboard/my-profile",{ replace: true });
 
 
 
@@ -107,7 +111,8 @@ export const Login= ({email:Email,password:Password},navigate)=>
             
         }
 
-        dispatch(setloading(false))
+        dispatch(setloading(false));
+        toast.dismiss(toastId)
 
     }
 }

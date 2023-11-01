@@ -19,7 +19,8 @@ import { useSelector } from "react-redux";
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const {Signupdata}=useSelector((state)=>state.Auth);
+  const {Signupdata,Token}=useSelector((state)=>state.Auth);
+ 
 
 
 useEffect(()=>{
@@ -28,6 +29,7 @@ useEffect(()=>{
   console.log("Printing base url: ",process.env.REACT_APP_Base_Url);
   console.log("islogin=>",isLoggedIn);
   console.log("Signupdata=>",Signupdata);
+  console.log("token=>",Token);
 });
 
  
