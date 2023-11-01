@@ -8,7 +8,7 @@ import {Sendotp} from "../../../services/operations/AuthAPI";
 import {setSignupData} from "../../../Slices/AuthSlice";
 
 
-const SignupForm = ({setIsLoggedIn}) => {
+const SignupForm = () => {
 
     
 

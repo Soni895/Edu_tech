@@ -42,8 +42,8 @@ useEffect(()=>{
       <Routes>
        <Route path="/" element={<Home/>}></Route>
        <Route path="/about" element={<About/>}></Route>
-       <Route path="/login" element = {<Login  setIsLoggedIn={setIsLoggedIn} />} />
-        <Route path="/signup" element={<Signup  setIsLoggedIn={setIsLoggedIn} />} />
+       <Route path="/login" element = {<Login  />} />
+        <Route path="/signup" element={<Signup  />} />
         <Route path="/resetpassword" element={<ResetPassword></ResetPassword>} ></Route>
         {/* <Route path="/dashboard" element ={
           <PrivateRoute isLoggedIn={isLoggedIn}> </PrivateRoute>

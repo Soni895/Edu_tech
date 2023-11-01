@@ -3,7 +3,7 @@ import signupImg from "../assets/Logo/signup.png"
 import Template from './Template'
 import { useSelector } from 'react-redux'
 
-const Signup = ({setIsLoggedIn}) => {
+const Signup = () => {
 
   const {loading}=useSelector(state=>state.Auth);
   
@@ -21,7 +21,7 @@ const Signup = ({setIsLoggedIn}) => {
       desc2="Education to future-proof your career."
       image={signupImg}
       formtype="signup"
-      setIsLoggedIn={setIsLoggedIn}
+    
     />
   )
 }

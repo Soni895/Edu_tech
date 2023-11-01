@@ -5,7 +5,7 @@ import { toast } from 'react-hot-toast';
 import { useDispatch } from 'react-redux';
 import {Login} from "../../../services/operations/AuthAPI";
 
-const LoginForm = ({setIsLoggedIn}) => {
+const LoginForm = () => {
 
     const navigate = useNavigate();
     const dispatch= useDispatch();
