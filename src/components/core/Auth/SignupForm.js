@@ -25,7 +25,7 @@ const SignupForm = ({setIsLoggedIn}) => {
 
     const [showPassword, setShowPassword] = useState(false);
     const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-    const [accountType, setAccountType] = useState("student");
+    const [accountType, setAccountType] = useState("Student");
 
     function changeHandler(event) {
 
@@ -85,20 +85,20 @@ const SignupForm = ({setIsLoggedIn}) => {
         className='flex bg-richblack-800 p-1 gap-x-1 my-6 rounded-full max-w-max'>
 
             <button
-            className={`${accountType === "student" 
+            className={`${accountType === "Student" 
             ?
               "bg-richblack-900 text-richblack-5"
             :"bg-transparent text-richblack-200"} py-2 px-5 rounded-full transition-all duration-200`}
-            onClick={()=> setAccountType("student")}>
+            onClick={()=> setAccountType("Student")}>
                 Student
             </button>
 
             <button
-            className={`${accountType === "instructor" 
+            className={`${accountType === "Instructor" 
             ?
               "bg-richblack-900 text-richblack-5"
             :"bg-transparent text-richblack-200"} py-2 px-5 rounded-full transition-all duration-200`}
-            onClick={() => setAccountType("instructor")}>
+            onClick={() => setAccountType("Instructor")}>
                 Instructor
             </button>
         </div>

@@ -3,7 +3,7 @@ import { setloading } from "../../Slices/AuthSlice"
 import { ApiConnector } from "../apiconnector";
 import {endpoints} from "../apis";
 import { Categories } from "../apis";
-import { useSelector } from "react-redux";
+
 
 
 
@@ -101,7 +101,11 @@ export const Sendotp = (email,navigate) => {
 
                if (!response.data.status==="OK") {
                 throw new Error(response.data.message)
+
               }
+             
+              toast.success("Otp send Successful");
+              navigate("/VerifyEmail");
              
 
             
@@ -112,12 +116,9 @@ export const Sendotp = (email,navigate) => {
             
         }
        
-
+        toast.dismiss(toastId);
         dispatch(setloading(false));
 
-        toast.dismiss(toastId);
-        toast.success("Otp send Successful");
-        navigate("/VerifyEmail");
 
     }
  
@@ -133,11 +134,45 @@ export const Signup= (
     Otp,
     navigate)=>
 {
+    console.log("user data=>", AccountType,
+        FirstName,
+        LastName,
+        Email,
+        Password,
+        ConfirmPassword,
+        Otp,)
     return async (dispatch)=>
     {
         console.log("signup data handler called");
-         console.log(dispatch);
-         
+
+        try {
+            dispatch(setloading(true));
+            const response= await ApiConnector("post",endpoints.SIGNUP_API,{AccountType,
+                FirstName,
+                LastName,
+                Email,
+                Password,
+                ConfirmPassword,
+                Otp,});
+            
+                console.log("response=>",response);
+                // if (!response.data.status==="OK") {
+                //     throw new Error(response.data.message)
+                //   }
+
+                toast.success("Account Created Successfully");
+                navigate("/login");
+
+
+            
+        } catch (error) {
+
+            console.log(error);
+            toast.error("faild to signup");
+            
+        }
+        dispatch(setloading(false));
+
     }
 
 }
