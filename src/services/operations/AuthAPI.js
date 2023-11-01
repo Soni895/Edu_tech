@@ -7,10 +7,6 @@ import { Categories } from "../apis";
 
 
 
-
-// Inside your component where you call ResetPassword
-
-
 export const Getpasswordresettoken=(Email,setemailsent)=>
 {
     
@@ -84,7 +80,37 @@ export const  ResetPassword=(Token,{Password,ConfirmPassword})=>
 }
 
 
+export const Login= ({email:Email,password:Password},navigate)=>
+{
+    return  async (dispatch)=>
+    {
+        dispatch(setloading(true));
 
+        console.log(" inside the login Auth API handler Email and password=>",Email,Password);
+
+        try {
+            const response=await ApiConnector("post",endpoints.LOGIN_API,{
+                Email,Password
+            });
+            console.log(" login response=>",response);
+            toast.success("Login sucecssful");
+            navigate("/dashboard/my-profile");
+
+
+
+            
+            
+        } catch (error) {
+
+            console.log(error);
+            toast.error("failed to login");
+            
+        }
+
+        dispatch(setloading(false))
+
+    }
+}
 
 
 
@@ -157,10 +183,10 @@ export const Signup= (
                 Otp,});
             
                 console.log("response=>",response);
-                // if (!response.data.status==="OK") {
-                //     throw new Error(response.data.message)
-                //   }
-
+                if (!response.data.status==="OK") {
+                    throw new Error(response.data.message)
+                  }
+                  
                 toast.success(response?.data?.message);
                 navigate("/login");
 

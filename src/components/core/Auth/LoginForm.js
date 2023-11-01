@@ -2,15 +2,17 @@ import React, { useState } from 'react'
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
-
+import { useDispatch } from 'react-redux';
+import {Login} from "../../../services/operations/AuthAPI";
 
 const LoginForm = ({setIsLoggedIn}) => {
 
     const navigate = useNavigate();
+    const dispatch= useDispatch();
 
     const [formData, setFormData] = useState( {
         email:"", password:""
-    })
+    });
 
     const[showPassword, setShowPassword] = useState(false);
 
@@ -27,11 +29,13 @@ const LoginForm = ({setIsLoggedIn}) => {
 
     function submitHandler(event) {
         event.preventDefault();
-        setIsLoggedIn(true);
-        toast.success("Logged In");
+        
+       
         console.log("Printing the formData ");
-        console.log(formData)
-        navigate("/dashboard");
+        console.log(formData);
+        dispatch(Login(formData,navigate));
+
+               
     }
 
   return (
