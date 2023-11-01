@@ -87,6 +87,7 @@ export const  ResetPassword=(Token,{Password,ConfirmPassword})=>
 
 
 
+
 export const Sendotp = (email,navigate) => {
 
     return async (dispatch)=>
@@ -97,7 +98,7 @@ export const Sendotp = (email,navigate) => {
         dispatch(setloading(true));
         try {
             const response= await ApiConnector("post",endpoints.SENDOTP_API,{Email:email});
-               console.log("responseinside send otp=>",response);
+               console.log("response inside send otp=>",response);
 
                if (!response.data.status==="OK") {
                 throw new Error(response.data.message)
@@ -160,7 +161,7 @@ export const Signup= (
                 //     throw new Error(response.data.message)
                 //   }
 
-                toast.success("Account Created Successfully");
+                toast.success(response?.data?.message);
                 navigate("/login");
 
 
@@ -169,13 +170,16 @@ export const Signup= (
 
             console.log(error);
             toast.error("faild to signup");
-            
+            navigate("/signup");
         }
         dispatch(setloading(false));
 
     }
 
 }
+
+
+
 
 export const logout= ()=>
 {

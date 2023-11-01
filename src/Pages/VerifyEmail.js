@@ -72,7 +72,7 @@ const VerifyEmail = () => {
               <Link to={"/login"}> Back to Login</Link>
               <button onClick={()=>
               {
-                dispatch(Sendotp(Signupdata.email))
+                dispatch(Sendotp(Signupdata.email,navigate))
               }}>resend it</button>
             </div>
         </div>
