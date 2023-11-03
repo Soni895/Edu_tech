@@ -44,10 +44,11 @@ if(authloading||profileloading){
         {
           
           console.log("link=>",link,"\n");
-          console.log(link.type,User?.Accouttype);
+          console.log(link.type,User?.AccountType);
          
-          if(link.type && User?.Accouttype!==link.type)
+          if(link.type && User?.AccountType!==link.type)
           {
+            
             return null;
           }
           return (

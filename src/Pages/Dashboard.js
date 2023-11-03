@@ -8,9 +8,9 @@ const Dashboard = () => {
    const {loading:authloading}=useSelector((state)=>state.Auth);
    const  {loading:profileloading}=useSelector((state)=>state.Profile);
 
-   console.log(authloading,profileloading);
+   console.log("authloading,profileloading=>",authloading,profileloading);
 
-   if(profileloading||profileloading){
+   if(authloading||profileloading){
     return(
 
       <div>
