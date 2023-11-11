@@ -8,7 +8,7 @@ const initialState = {
   Paymentloading: false,
 }
 
-const Courseslice = createSlice({
+const CourseSlice = createSlice({
   name: "Course",
   initialState,
   reducers: {
@@ -38,6 +38,6 @@ export const {
     Seteditcourse,
   setpaymentloading,
   resetCourseState,
-} = Courseslice.actions
+} = CourseSlice.actions
 
-export default Courseslice.reducer
+export default CourseSlice.reducer
