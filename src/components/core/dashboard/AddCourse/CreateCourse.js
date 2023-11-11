@@ -1,4 +1,5 @@
 import React from 'react';
+import Rendersteps from './Rendersteps';
 
 const CreateCourse = () => {
   return (
@@ -8,7 +9,7 @@ const CreateCourse = () => {
           <h1>Add Courses</h1>
         </div>
         <div>
-          {/* <RenderSteps></RenderSteps> */}
+          <Rendersteps/>
         </div>
       </div>
       <div>
