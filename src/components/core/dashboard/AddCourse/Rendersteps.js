@@ -26,10 +26,9 @@ function Rendersteps() {
   return (
     <div>
       <div className="flex justify-between">
-        {steps.map((item) => (
-          <div>
+        {steps.map((item,index) => (
+          <div key={item.id}>
             <div
-              key={item.id}
               className={`${
                 Step === item.id
                   ? " bg-yellow-900  border-yellow-50 text-yellow-50 "
