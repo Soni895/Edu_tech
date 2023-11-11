@@ -1,6 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import { LoaderIcon, toast } from "react-hot-toast";
-import { json } from "react-router-dom";
+
 
 const initialState = {
   Totalitems: localStorage.getItem("totalItems")
