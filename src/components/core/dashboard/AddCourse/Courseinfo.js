@@ -22,7 +22,7 @@ function Courseinfo() {
   const Getcategories = async () => {
     setloading(true);
 
-    const Categories= await GetCategory();
+    const Categories=  await GetCategory();
     console.log(Categories);
 
        if(Categories.data.response.length>0)
@@ -37,6 +37,8 @@ function Courseinfo() {
   };
 
   useEffect(() => {
+
+    // dispatch(GetCategory(Setcoursecategories));
     
       Getcategories();
 
