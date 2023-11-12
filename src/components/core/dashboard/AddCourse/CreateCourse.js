@@ -1,7 +1,7 @@
 import React from 'react';
 import Rendersteps from './Rendersteps';
 
-const CreateCourse = () => {
+const Createcourse = () => {
   return (
     <div className='text-white'>
       <div>
@@ -29,4 +29,4 @@ const CreateCourse = () => {
   );
 };
 
-export default CreateCourse;
+export default Createcourse;

@@ -16,7 +16,7 @@ import Setting from "./components/core/dashboard/setting/Setting";
 import Enrolledcourses from "./components/core/dashboard/Enrolledcourses";
 import Cart from "./components/core/dashboard/cart/Cart.js";
 import { useSelector } from "react-redux";
-import CreateCourse from "./components/core/dashboard/AddCourse/CreateCourse.js";
+import Createcourse from "./components/core/dashboard/AddCourse/Createcourse.js";
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -61,7 +61,7 @@ useEffect(()=>{
           <Route path="/dashboard/enrolled-courses" element={<Enrolledcourses/>}/>
           <Route path="/dashboard/cart" element={<Cart></Cart>}></Route>
         </Route>
-        <Route path="/createcourse" element={<CreateCourse/>}></Route>
+        <Route path="/createcourse" element={<Createcourse/>}></Route>
       </Routes>
     </div>
   );
