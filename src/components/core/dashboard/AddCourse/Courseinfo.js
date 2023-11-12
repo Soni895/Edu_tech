@@ -23,24 +23,31 @@ function Courseinfo() {
     setloading(true);
 
     const Categories= await GetCategory();
+    console.log(Categories);
 
-       if(Categories.length>0)
+       if(Categories.data.response.length>0)
      {
         Setcoursecategories(Categories.data.response);
+        console.log("Coursecategories =>",Coursecategories);
+        console.log(Categories.data.response);
        
      }
-     console.log(Categories.data.response);
+    
     setloading(false);
   };
 
   useEffect(() => {
-    Getcategories();
+    
+      Getcategories();
+
+   
   }, []);
+
 
   const Submithandler = async (data) => {
     console.log(data);
   };
-
+  console.log(Coursecategories);
   return (
     <div>
       <form onSubmit={handleSubmit(Submithandler)}>
@@ -89,19 +96,23 @@ function Courseinfo() {
         </div>
 
         {
-          <div className="text-white">
+          <div className="">
             <label htmlFor="Category">
               {" "}
               Course Categories <sup>*</sup>
             </label>
             <select
+            className="text-black"
               id="Category"
-              defaultValue=""
+              
               {...register("Category", { required: true })}
             >
-             <option disabled>Choose A category</option>
-              {  !loading && Coursecategories.map((category, index) => {
-                console.log(category);
+             <option value="">Choose A category</option>
+             
+              { 
+               
+                 !loading && Coursecategories.map((category, index) => {
+                
                 return (
                 
                  <option key={index} value={category?._id}>{category?.Name}</option>
