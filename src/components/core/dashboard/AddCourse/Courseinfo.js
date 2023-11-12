@@ -88,7 +88,7 @@ function Courseinfo() {
         </div>
 
         {
-          <div>
+          <div className="text-white">
             <label htmlFor="Category">
               {" "}
               Course Categories <sup>*</sup>
@@ -98,8 +98,11 @@ function Courseinfo() {
               defaultValue=""
               {...register("Category", { required: true })}
             >
-              {Coursecategories.map((category, index) => {
-                return <option key={index}>{category}</option>;
+             <option disabled>Choose A category</option>
+              {  !loading && Coursecategories.map((category, index) => {
+                return (
+                 <option key={index} value={category?._id}>{category?.Name}</option>
+                 );
               })}
             </select>
             {errors.Category && <span>please select category</span>}
