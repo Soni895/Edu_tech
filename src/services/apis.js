@@ -2,7 +2,8 @@ const BASE_URL = process.env.REACT_APP_Base_Url;
 
 console.log("Base_Url=>",BASE_URL);
 
-export const Categories= 
+// category
+export const Categories=
 {
   CATEGORIES_API: BASE_URL+"/Course/GetAllCategory",
 }

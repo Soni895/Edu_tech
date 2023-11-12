@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { MdCurrencyRupee } from "react-icons/md";
-import { Categories } from "../../../../services/apis";
+import  {GetCategory}  from "../../../../services/operations/Category";
 function Courseinfo() {
   const {
     register,
@@ -22,13 +22,14 @@ function Courseinfo() {
   const Getcategories = async () => {
     setloading(true);
 
-    // const Categories= await dispatch(getcategories())
-    //   need to call api
+    const Categories= await GetCategory();
 
-    //    if(Categories.length>0)
-    //  {
-    //    setCoursecategories(Categories);
-    //  }
+       if(Categories.length>0)
+     {
+        Setcoursecategories(Categories.data.response);
+       
+     }
+     console.log(Categories.data.response);
     setloading(false);
   };
 
@@ -100,7 +101,9 @@ function Courseinfo() {
             >
              <option disabled>Choose A category</option>
               {  !loading && Coursecategories.map((category, index) => {
+                console.log(category);
                 return (
+                
                  <option key={index} value={category?._id}>{category?.Name}</option>
                  );
               })}
