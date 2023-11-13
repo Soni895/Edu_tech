@@ -20,6 +20,7 @@ function Courseinfo() {
   const [Coursecategories, Setcoursecategories] = useState([]);
 
   const Getcategories = async () => {
+   
     setloading(true);
 
     const Categories=  await GetCategory();
