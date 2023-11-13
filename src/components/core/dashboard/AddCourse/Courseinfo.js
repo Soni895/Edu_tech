@@ -109,10 +109,11 @@ function Courseinfo() {
             <select
             className="text-black"
               id="Category"
+              defaultValue={""}
               
               {...register("Category", { required: true })}
             >
-             <option value="">Choose A category</option>
+             <option value="" disabled>Choose A category</option>
              
               { 
                
