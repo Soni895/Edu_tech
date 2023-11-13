@@ -159,7 +159,7 @@ function Courseinfo() {
               <input 
               id="Requirements"
               type="text"
-              
+                
               ></input>
 
             </div>
