@@ -131,7 +131,7 @@ function Courseinfo() {
         
 
 
-        <input type="submit" />
+       
 
             {/* home work craete a coustom input for tag  */}
 
@@ -139,6 +139,34 @@ function Courseinfo() {
             <Mediaupload/>
 
             {/* benefits of the course */}
+            <div>
+              <label  htmlFor="Benefits">benefits Of The Course <sup>*</sup></label>
+              <textarea
+              id="Benefits"
+              placeholder="Enter Benefits of Course"
+              {...register("Benefits", { required: true })}
+              />
+              {
+                errors.Benefits && <span> required</span>
+              }
+            </div>
+
+
+            {/* requirements field */}
+
+            <div>
+              <label htmlFor="Requirements">Requirements/Instructions <sub>*</sub></label>
+              <input 
+              id="Requirements"
+              type="text"
+              
+              ></input>
+
+            </div>
+            <input type="submit" />
+
+
+
 
             
       </form>
