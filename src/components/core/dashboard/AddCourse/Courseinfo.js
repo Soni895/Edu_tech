@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { MdCurrencyRupee } from "react-icons/md";
 import  {GetCategory}  from "../../../../services/operations/Category";
+import Mediaupload from "./Mediaupload";
 function Courseinfo() {
   const {
     register,
@@ -100,7 +101,7 @@ function Courseinfo() {
           {errors.Price && <span> Course Price is required </span>}
         </div>
 
-        {
+        
           <div className="">
             <label htmlFor="Category">
               {" "}
@@ -127,9 +128,19 @@ function Courseinfo() {
             </select>
             {errors.Category && <span>please select category</span>}
           </div>
-        }
+        
+
 
         <input type="submit" />
+
+            {/* home work craete a coustom input for tag  */}
+
+            {/* thumbmail upload */}
+            <Mediaupload/>
+
+            {/* benefits of the course */}
+
+            
       </form>
     </div>
   );

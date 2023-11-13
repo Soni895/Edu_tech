@@ -37,7 +37,11 @@ function Rendersteps() {
             >
               {Step > item.id ? <FaCheck /> : item.id}
             </div>
-            <div>
+            <div  className={`${
+                Step === item.id
+                  ? "  border-yellow-50 text-yellow-50 "
+                  : " border-richblack-700  text-richblack-300"
+              }`}>
               {
                 item.title
               }
