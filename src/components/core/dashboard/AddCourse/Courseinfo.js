@@ -10,6 +10,7 @@ function Courseinfo() {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors, isSubmitSuccessful },
   } = useForm();
 
@@ -48,6 +49,7 @@ function Courseinfo() {
 
 
   const Submithandler = async (data) => {
+    reset();
     console.log(data);
   };
   console.log(Coursecategories);
