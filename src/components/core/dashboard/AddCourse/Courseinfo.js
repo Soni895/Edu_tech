@@ -160,7 +160,6 @@ function Courseinfo() {
               id="Requirements"
               type="text"
               ></input>
-
             </div>
             <input type="submit" />
 
