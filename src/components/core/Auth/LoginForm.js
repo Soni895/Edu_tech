@@ -71,6 +71,8 @@ const LoginForm = () => {
                 className='bg-richblack-800 rounded-[0.5rem] text-richblack-5 w-full p-[12px]'
             />
 
+
+
             <span 
             className='absolute right-3 top-[38px] cursor-pointer'
             onClick={() => setShowPassword((prev) => !prev)}>
