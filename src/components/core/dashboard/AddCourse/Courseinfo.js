@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { MdCurrencyRupee } from "react-icons/md";
-import  {GetCategory}  from "../../../../services/operations/CourseDetailesAPI";
+import { GetCategory } from "../../../../services/operations/CourseDetailesAPI";
 import Mediaupload from "./Mediaupload";
 function Courseinfo() {
   const {
@@ -22,32 +22,25 @@ function Courseinfo() {
   const [Coursecategories, Setcoursecategories] = useState([]);
 
   const Getcategories = async () => {
-   
     setloading(true);
 
-    const Categories=  await GetCategory();
+    const Categories = await GetCategory();
     console.log(Categories);
 
-       if(Categories.data.response.length>0)
-     {
-        Setcoursecategories(Categories.data.response);
-        console.log("Coursecategories =>",Coursecategories);
-        console.log(Categories.data.response);
-       
-     }
-    
+    if (Categories.data.response.length > 0) {
+      Setcoursecategories(Categories.data.response);
+      console.log("Coursecategories =>", Coursecategories);
+      console.log(Categories.data.response);
+    }
+
     setloading(false);
   };
 
   useEffect(() => {
-
     // dispatch(GetCategory(Setcoursecategories));
-    
-      Getcategories();
 
-   
+    Getcategories();
   }, []);
-
 
   const Submithandler = async (data) => {
     reset();
@@ -101,73 +94,60 @@ function Courseinfo() {
           {errors.Price && <span> Course Price is required </span>}
         </div>
 
-        
-          <div className="">
-            <label htmlFor="Category">
-              {" "}
-              Course Categories <sup>*</sup>
-            </label>
-            <select
+        <div className="">
+          <label htmlFor="Category">
+            {" "}
+            Course Categories <sup>*</sup>
+          </label>
+          <select
             className="text-black"
-              id="Category"
-              defaultValue={""}
-              
-              {...register("Category", { required: true })}
-            >
-             <option value="" disabled>Choose A category</option>
-             
-              { 
+            id="Category"
+            defaultValue={""}
+            {...register("Category", { required: true })}
+          >
+            <option value="" disabled>
+              Choose A category
+            </option>
 
-               
-                 !loading && Coursecategories.map((category, index) => {
-                
+            {!loading &&
+              Coursecategories.map((category, index) => {
                 return (
-                
-                 <option key={index} value={category?._id}>{category?.Name}</option>
-                 );
+                  <option key={index} value={category?._id}>
+                    {category?.Name}
+                  </option>
+                );
               })}
-            </select>
-            {errors.Category && <span>please select category</span>}
-          </div>
-        
+          </select>
+          {errors.Category && <span>please select category</span>}
+        </div>
 
+        {/* home work craete a coustom input for tag  */}
 
-       
+        {/* thumbmail upload */}
+        <Mediaupload />
 
-            {/* home work craete a coustom input for tag  */}
+        {/* benefits of the course */}
+        <div>
+          <label htmlFor="Benefits">
+            benefits Of The Course <sup>*</sup>
+          </label>
+          <textarea
+            id="Benefits"
+            placeholder="Enter Benefits of Course"
+            {...register("Benefits", { required: true })}
+          />
+          {errors.Benefits && <span> required</span>}
+        </div>
 
-            {/* thumbmail upload */}
-            <Mediaupload/>
+        {/* requirements field */}
 
-            {/* benefits of the course */}
-            <div>
-              <label  htmlFor="Benefits">benefits Of The Course <sup>*</sup></label>
-              <textarea
-              id="Benefits"
-              placeholder="Enter Benefits of Course"
-              {...register("Benefits", { required: true })}
-              />
-              {
-                errors.Benefits && <span> required</span>
-              }
-            </div>
-
-
-            {/* requirements field */}
-
-            <div>
-              <label htmlFor="Requirements">Requirements/Instructions <sub>*</sub></label>
-              <input 
-              id="Requirements"
-              type="text"
-              ></input>
-            </div>
-            <input type="submit" />
-
-
-
-
-            
+        <div>
+          <label htmlFor="Requirements">
+            Requirements/Instructions <sub>*</sub>
+          </label>
+          <input id="Requirements" type="text"></input>
+        </div>
+        <input type="submit" />
       </form>
     </div>
   );
