@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { MdCurrencyRupee } from "react-icons/md";
 import { GetCategory } from "../../../../services/operations/CourseDetailesAPI";
 import Mediaupload from "./Mediaupload";
+import Requirements from "./Requirements";
 function Courseinfo() {
   const {
     register,
@@ -140,6 +141,10 @@ function Courseinfo() {
         </div>
 
         {/* requirements field home work */}
+ 
+        <Requirements
+           name="courseRequirements"
+        ></Requirements>
 
         <div>
           <label htmlFor="Requirements">
