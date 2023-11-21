@@ -22,6 +22,7 @@ function Courseinfo() {
   } = useForm();
 
   const dispatch = useDispatch();
+  const {Token} = useSelector((state)=>state.Auth);
 
   const { Course, Editcourse, } = useSelector((state) => state.Course);
   const [loading, setloading] = useState(false);
