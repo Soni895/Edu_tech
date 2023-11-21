@@ -5,7 +5,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useDispatch, useSelector } from "react-redux";
 import { MdCurrencyRupee } from "react-icons/md";
-import  {GetCategory}  from "../../../../services/operations/Category";
+import  {GetCategory}  from "../../../../services/operations/CourseDetailesAPI";
 import Mediaupload from "./Mediaupload";
 function Courseinfo() {
   const {
@@ -117,6 +117,7 @@ function Courseinfo() {
              <option value="" disabled>Choose A category</option>
              
               { 
+
                
                  !loading && Coursecategories.map((category, index) => {
                 

@@ -1,5 +1,5 @@
-import { ApiConnector } from "../apiconnector";
-import { Categories } from "../apis";
+import { ApiConnector } from "../ApiConnector";
+import { Categories } from "../APIs";
 
 
 export const GetCategory= async(setdata=null)=>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {  useForm } from 'react-hook-form';
-import { ApiConnector } from '../../../services/apiconnector';
-import {contactusEndpoint} from "../../../services/apis";
+import { ApiConnector } from '../../../services/ApiConnector';
+import {contactusEndpoint} from "../../../services/APIs";
 import  code from "../../../data/countrycode.json";
 
 function   Contactus() {
