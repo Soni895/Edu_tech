@@ -12,16 +12,16 @@ const CourseSlice = createSlice({
   name: "Course",
   initialState,
   reducers: {
-    Setstep: (state, action) => {
+    setStep: (state, action) => {
       state.Step = action.payload
     },
-    Setcourse: (state, action) => {
+    SetCourse: (state, action) => {
       state.Course = action.payload
     },
-    Seteditcourse: (state, action) => {
+    setEditcourse: (state, action) => {
       state.Editcourse = action.payload
     },
-    Setpaymentloading: (state, action) => {
+    setPaymentloading: (state, action) => {
       state.Paymentloading = action.payload
     },
     Resetcoursestate: (state) => {
@@ -33,11 +33,11 @@ const CourseSlice = createSlice({
 })
 
 export const {
-    Setstep,
-    Setcourse,
-    Seteditcourse,
-  setpaymentloading,
-  resetCourseState,
+  Resetcoursestate,
+  setPaymentloading,
+  setEditcourse,
+  SetCourse,
+  setStep,
 } = CourseSlice.actions
 
 export default CourseSlice.reducer

@@ -3,8 +3,8 @@ import {  toast } from "react-hot-toast";
 
 
 const initialState = {
-  Totalitems: localStorage.getItem("totalitems")
-    ? JSON.parse(localStorage.getItem("totalitems"))
+  Totalitems: localStorage.getItem("Totalitems")
+    ? JSON.parse(localStorage.getItem("Totalitems"))
     : 0,
   Total: localStorage.getItem("Total")
     ? JSON.parse(localStorage.getItem("Total"))
@@ -87,5 +87,5 @@ const CartSlice = createSlice({
     },
   },
 });
-export const { Addtocart,Removetocart, Resetcart  } = CartSlice.actions;
+export const { Resetcart,Addtocart, Removetocart  } = CartSlice.actions;
 export default CartSlice.reducer;
