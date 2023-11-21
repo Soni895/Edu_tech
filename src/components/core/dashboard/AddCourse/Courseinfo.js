@@ -123,7 +123,7 @@ function Courseinfo() {
 
         {/* home work craete a coustom input for tag  */}
 
-        {/* thumbmail upload */}
+        {/* thumbmail upload  homework */}
         <Mediaupload />
 
         {/* benefits of the course */}
@@ -139,7 +139,7 @@ function Courseinfo() {
           {errors.Benefits && <span> required</span>}
         </div>
 
-        {/* requirements field */}
+        {/* requirements field home work */}
 
         <div>
           <label htmlFor="Requirements">
