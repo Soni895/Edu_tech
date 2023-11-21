@@ -3,16 +3,16 @@ import React, { useEffect, useState } from 'react'
 function Requirements({name, label, register, errors, setValue, getValues}) {
   const [requirements,setrequirements]=useState('');
   const [requirementslist,setrequirementslist]= useState([]);
+  console.log(requirementslist.length);
   
 
 
+//    useEffect(()=>
+//    {
+//     register(name,{required:true,
+//     ValidityState:(value)=>value.length>0})
 
-   useEffect(()=>
-   {
-    // register(name,{required:true,
-    // ValidityState:(value)=>value.length>0})
-
-   })
+//    });
 const addhandler=()=>
 {
     if(requirements)
@@ -36,9 +36,10 @@ const addhandler=()=>
 
 <label htmlFor={name}>{label}</label>
 <input
+className='text-black'
 type='text'
 id={name}
-onClick={(e)=>
+onChange={(e)=>
 {
     setrequirements(e.target.value);
 
@@ -51,7 +52,9 @@ onClick={addhandler}
 className='font-semibold text-yellow-100'>
     add
 </button>
+
 {
+    
     requirementslist.length>0 &&(
         <ul>
         {
@@ -61,7 +64,10 @@ className='font-semibold text-yellow-100'>
                     
                     <span>{requirement}</span>
                     <button type='button'
-                    onClick={removehandler(index)}
+                    onClick={()=>
+                    {
+                        removehandler(index)
+                    }}
                     className='font-semibold text-yellow-100'>clear</button>
                     </li>
             }
