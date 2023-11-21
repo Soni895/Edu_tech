@@ -87,7 +87,7 @@ className='font-semibold text-yellow-100'>
     )
 }
 {
-    errors.name &&(
+    errors[name] &&(
         <span> is required</span>
     )
  
