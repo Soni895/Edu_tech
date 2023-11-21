@@ -9,6 +9,8 @@ import { GetCategory } from "../../../../services/operations/CourseDetailesAPI";
 import Mediaupload from "./Mediaupload";
 import Requirements from "./Requirements";
 import { BsCheckLg } from "react-icons/bs";
+import IconBtn from "../../../common/Iconbtn";
+import { setStep } from "../../../../Slices/CourseSlice";
 function Courseinfo() {
   const {
     register,
@@ -21,9 +23,9 @@ function Courseinfo() {
 
   const dispatch = useDispatch();
 
-  const { Course, Editcourse } = useSelector((state) => state.Course);
+  const { Course, Editcourse, } = useSelector((state) => state.Course);
   const [loading, setloading] = useState(false);
-  const [Coursecategories, Setcoursecategories] = useState([]);
+  const [Coursecategories, SetCoursecategories] = useState([]);
 
   const Getcategories = async () => {
     setloading(true);
@@ -32,7 +34,7 @@ function Courseinfo() {
     console.log(Categories);
 
     if (Categories.data.response.length > 0) {
-      Setcoursecategories(Categories.data.response);
+      SetCoursecategories(Categories.data.response);
       console.log("Coursecategories =>", Coursecategories);
       console.log(Categories.data.response);
     }
@@ -41,13 +43,109 @@ function Courseinfo() {
   };
 
   useEffect(() => {
-    // dispatch(GetCategory(Setcoursecategories));
+    // dispatch(GetCategory(SetCoursecategories));
 
     Getcategories();
+
+  //   if(EditCourse) {
+  //     setValue("Title", Course.CourseName);
+  //     setValue("CourseDescription", Course.CourseDescription);
+  //     setValue("CoursePrice", Course.price);
+  //     setValue("CourseTags", Course.tag);
+  //     setValue("CourseBenefits", Course.whatYouWillLearn);
+  //     setValue("CourseCategory", Course.category);
+  //     setValue("CourseRequirements", Course.instructions);
+  //     setValue("CourseImage", Course.thumbnail);
+  // }
   }, []);
 
+
+  const IsFormUpdated = () => {
+    const currentValues = getValues();
+    if(currentValues.eTitle !== Course.CourseName ||
+        currentValues.ShortDesc !== Course.CourseDescription ||
+        currentValues.Price !== Course.price ||
+        currentValues.Title !== Course.CourseName ||
+        //currentValues.CourseTags.toString() !== Course.tag.toString() ||
+        currentValues.Benefits !== Course.whatYouWillLearn ||
+        currentValues.Category._id !== Course.category._id ||
+        //currentValues.CourseImage !== Course.thumbnail ||
+        currentValues.Requirements.toString() !== Course.instructions.toString() )
+        return true;
+    else
+        return false;
+}
+
   const Submithandler = async (data) => {
-    // reset();
+    reset();
+  //   if(Editcourse) {
+  //     if(IsFormUpdated()) {
+  //         const currentValues = getValues();
+  //     const formData = new FormData();
+
+  //     formData.append("courseId", Course._id);
+  //     if(currentValues.courseTitle !== Course.courseName) {
+  //         formData.append("courseName", data.courseTitle);
+  //     }
+
+  //     if(currentValues.courseShortDesc !== Course.courseDescription) {
+  //         formData.append("courseDescription", data.courseShortDesc);
+  //     }
+
+  //     if(currentValues.coursePrice !== Course.price) {
+  //         formData.append("price", data.coursePrice);
+  //     }
+
+  //     if(currentValues.courseBenefits !== Course.whatYouWillLearn) {
+  //         formData.append("whatYouWillLearn", data.courseBenefits);
+  //     }
+
+  //     if(currentValues.courseCategory._id !== Course.category._id) {
+  //         formData.append("category", data.courseCategory);
+  //     }
+
+  //     if(currentValues.courseRequirements.toString() !== Course.instructions.toString()) {
+  //         formData.append("instructions", JSON.stringify(data.courseRequirements));
+  //     }
+
+  //     setloading(true);
+  //     const result = await editCourseDetails(formData, token);
+  //     setloading(false);
+  //     if(result) {
+  //         setStep(2);
+  //         dispatch(setCourse(result));
+  //     }
+  //     } 
+  //     else {
+  //         toast.error("NO Changes made so far");
+  //     }
+  //     console.log("PRINTING FORMDATA", formData);
+  //     console.log("PRINTING result", result);
+
+  //     return;
+  // }
+
+  // //create a new Course
+  // const formData = new FormData();
+  // formData.append("courseName", data.courseTitle);
+  // formData.append("courseDescription", data.courseShortDesc);
+  // formData.append("price", data.coursePrice);
+  // formData.append("whatYouWillLearn", data.courseBenefits);
+  // formData.append("category", data.courseCategory);
+  // formData.append("instructions", JSON.stringify(data.courseRequirements));
+  // formData.append("status", COURSE_STATUS.DRAFT);
+
+  // setLoading(true);
+  // console.log("BEFORE add Course API call");
+  // console.log("PRINTING FORMDATA", formData);
+  // const result = await addCourseDetails(formData,token);
+  // if(result) {
+  //     setStep(2);
+  //     dispatch(setCourse(result));
+  // }
+  // setLoading(false);
+  // console.log("PRINTING FORMDATA", formData);
+  // console.log("PRINTING result", result);
     console.log(data);
   };
   console.log(Coursecategories);
@@ -68,14 +166,14 @@ function Courseinfo() {
           {errors.Title && <span> Course Title is required </span>}
         </div>
         <div>
-          <label htmlFor="Coursedescription">
+          <label htmlFor="CourseDescription">
             {" "}
             Course Description <sup>*</sup>{" "}
           </label>
           <textarea
-            id="Coursedescription"
+            id="CourseDescription"
             placeholder="Enter Course Description"
-            {...register("Coursedescription", { required: true })}
+            {...register("CourseDescription", { required: true })}
           />
           {errors.Coursedescription && (
             <span> Course Description is required</span>
@@ -131,7 +229,7 @@ function Courseinfo() {
         {/* thumbmail upload  homework */}
         <Mediaupload />
 
-        {/* benefits of the course */}
+        {/* benefits of the Course */}
         <div>
           <label htmlFor="Benefits">
             benefits Of The Course <sup>*</sup>
@@ -147,21 +245,29 @@ function Courseinfo() {
         {/* requirements field home work */}
  
         <Requirements
-           name="courseRequirements"
+           name="CourseRequirements"
            label="Requirements/Instructions"
             register={register}
             errors={errors}
             setValue={setValue}
             getValues={getValues}
         ></Requirements>
+  <div>
+            {
+                Editcourse && (
+                    <button
+                    onClick={() => dispatch(setStep(2))}
+                    className='flex items-center gap-x-2 bg-richblack-300'
+                    >
+                        Continue Without Saving
+                    </button>
+                )
+            }
 
-        <div>
-          <label htmlFor="Requirements">
-            Requirements/Instructions <sub>*</sub>
-          </label>
-          <input id="Requirements" type="text"></input>
+            <IconBtn
+                text={!Editcourse ? "Next" : "Save Changes"}
+                />
         </div>
-        <input type="submit" />
       </form>
     </div>
   );
