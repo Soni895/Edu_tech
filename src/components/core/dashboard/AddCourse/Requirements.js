@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 
 function Requirements({ name, label, register, errors, setValue, getValues }) {
   const [requirements, setrequirements] = useState("");
   const [requirementslist, setrequirementslist] = useState([]);
   console.log(requirementslist.length);
+  const [loading, setLoading] = useState(false);
+  const {Token} = useSelector((state)=>state.Auth);
 
   useEffect(() => {
     console.log("inside the first rendering");

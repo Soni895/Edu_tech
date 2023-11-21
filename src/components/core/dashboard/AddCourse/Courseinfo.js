@@ -253,7 +253,7 @@ function Courseinfo() {
             getValues={getValues}
         ></Requirements>
   <div>
-            {
+          {
                 Editcourse && (
                     <button
                     onClick={() => dispatch(setStep(2))}
@@ -263,7 +263,6 @@ function Courseinfo() {
                     </button>
                 )
             }
-
             <IconBtn
                 text={!Editcourse ? "Next" : "Save Changes"}
                 />
