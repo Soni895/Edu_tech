@@ -1,9 +1,13 @@
-import React from 'react'
+import React, { useState } from 'react'
 
-function Requirements({name}) {
-  return (
+function Requirements({name, label, register, errors, setValue, getValues}) {
+  const [requirements,setrequirements]=useState('');
+  const [requirementslist,setrequirementslist]= useState([]);
+  
+    return (
     <div>
-        
+    
+
     </div>
   )
 }
