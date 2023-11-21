@@ -13,6 +13,8 @@ function Courseinfo() {
     register,
     handleSubmit,
     reset,
+    setValue,
+    getValues,
     formState: { errors, isSubmitSuccessful },
   } = useForm();
 
@@ -144,6 +146,11 @@ function Courseinfo() {
  
         <Requirements
            name="courseRequirements"
+           label="Requirements/Instructions"
+            register={register}
+            errors={errors}
+            setValue={setValue}
+            getValues={getValues}
         ></Requirements>
 
         <div>
