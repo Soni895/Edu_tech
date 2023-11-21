@@ -11,7 +11,7 @@ const ProfileSlice=createSlice(
         name:"Profile",
         initialState,
         reducers: {
-           Setuser(state,value)
+           setUser(state,value)
            {
             console.log("before update=>" ,state);
             state.User=value.payload;
@@ -32,5 +32,5 @@ const ProfileSlice=createSlice(
 
     }
 )
-export const {Setuser,setLoading}=ProfileSlice.actions;
+export const {setUser,setloading}=ProfileSlice.actions;
 export default ProfileSlice.reducer;
