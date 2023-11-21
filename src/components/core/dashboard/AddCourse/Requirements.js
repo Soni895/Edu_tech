@@ -7,12 +7,19 @@ function Requirements({name, label, register, errors, setValue, getValues}) {
   
 
 
-//    useEffect(()=>
-//    {
-//     register(name,{required:true,
-//     ValidityState:(value)=>value.length>0})
+   useEffect(()=>
+   {
+    console.log("inside the first rendering");
+    register(name,{required:true,
+    ValidityState:(value)=>value.length>0})
 
-//    });
+   },[]);
+useEffect(()=>
+{
+    console.log("inside the dependency list");
+      setValue(name,requirementslist);
+
+},[requirementslist]);
 const addhandler=()=>
 {
     if(requirements)
@@ -80,7 +87,7 @@ className='font-semibold text-yellow-100'>
     )
 }
 {
-    errors[name] &&(
+    errors.name &&(
         <span> is required</span>
     )
  

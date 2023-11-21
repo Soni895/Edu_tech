@@ -47,7 +47,7 @@ function Courseinfo() {
   }, []);
 
   const Submithandler = async (data) => {
-    reset();
+    // reset();
     console.log(data);
   };
   console.log(Coursecategories);
