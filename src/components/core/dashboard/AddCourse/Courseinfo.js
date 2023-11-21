@@ -8,6 +8,7 @@ import { MdCurrencyRupee } from "react-icons/md";
 import { GetCategory } from "../../../../services/operations/CourseDetailesAPI";
 import Mediaupload from "./Mediaupload";
 import Requirements from "./Requirements";
+import { BsCheckLg } from "react-icons/bs";
 function Courseinfo() {
   const {
     register,
@@ -62,6 +63,7 @@ function Courseinfo() {
             id="Title"
             placeholder="Enter Course Title"
             {...register("Title", { required: true })}
+         
           />
           {errors.Title && <span> Course Title is required </span>}
         </div>
