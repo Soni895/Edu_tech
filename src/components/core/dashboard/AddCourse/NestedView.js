@@ -1,6 +1,8 @@
 import React from 'react'
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux'
+import { RxDropdownMenu } from "react-icons/rx";
+
 
 function NestedView({HandleChangeEditSection}) {
 
@@ -11,8 +13,27 @@ function NestedView({HandleChangeEditSection}) {
     const [addsubsection,setsubsection]=useState(null);
     const [viewsubsection,setviewsubsection]=useState(null);
     const [editsubsection,seteditsubsection]=useState(null);
+    const [confirmationmodaal,setconfirmationmodal]=useState(null);
   return (
-    <div>NestedView</div>
+    <div>
+        <div>
+        {
+            Course?.CourseContent.map((section,index)=>(
+                <details key={section?._id} open>
+                <summary>
+                <RxDropdownMenu />
+                <p>{section.SectionName}</p>
+
+
+
+                </summary>
+
+                </details>
+            ))
+        }
+
+        </div>
+    </div>
   )
 }
 
