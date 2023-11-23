@@ -1,15 +1,16 @@
 import React from 'react'
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import IconBtn from '../../../common/Iconbtn';
 import { setStep } from '../../../../Slices/CourseSlice';
 import { useState } from 'react';
 import { IoIosAddCircleOutline } from "react-icons/io";
+import NestedView from './NestedView';
 
 function Coursebuilder() {
 
   const  [Editsectionname,setEditsectionname]= useState(null);
-
+const  {Course}= useSelector((state)=>state.Course);
   const {
     register,
     handleSubmit,
@@ -53,7 +54,17 @@ function Coursebuilder() {
     >
         <IoIosAddCircleOutline className='text-yellow-50 text-lg' />
     </IconBtn>
-  
+  {
+    Editsectionname && (
+    <button type='button'
+    onClick={()=>(
+      setEditsectionname(null),
+      setValue("SectionName","")
+    )
+    }> Cancel Course Name</button>
+    )
+  }
+
     </div>
     </div>
     <div className='flex justify-end gap-10'>
@@ -69,7 +80,11 @@ function Coursebuilder() {
   
   </form>
 
-
+ { Course.CourseContent.length >0 &&(
+  <NestedView/>
+ )
+ }
+ 
     </div>
   )
 }
