@@ -33,11 +33,11 @@ function Coursebuilder() {
     id='Course Builder'
     type='text'
     placeholder='Enter Course Name'
-    {...register("Course Builder",)}>
+    {...register("Coursebuilder",{required:true})}>
 
     </input>
     {
-      errors.Coursebuilder && <spam> required</spam>
+      errors.Coursebuilder && <span> required</span>
     }
     <div className='flex justify-end gap-10'>
     <IconBtn 
