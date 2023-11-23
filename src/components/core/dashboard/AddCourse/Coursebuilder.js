@@ -2,6 +2,7 @@ import React from 'react'
 import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import IconBtn from '../../../common/Iconbtn';
+import { setStep } from '../../../../Slices/CourseSlice';
 
 function Coursebuilder() {
 
@@ -42,9 +43,11 @@ function Coursebuilder() {
     <div className='flex justify-end gap-10'>
     <IconBtn 
     text="Back"
+    onclick={()=>dispatch(setStep(1))}
      />
       <IconBtn 
-    text="Submit" />
+    text="Submit"
+    onclick={()=>dispatch(setStep(3))} />
 
     </div>
   
