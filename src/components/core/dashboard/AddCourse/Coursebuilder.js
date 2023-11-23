@@ -3,8 +3,12 @@ import { useForm } from 'react-hook-form';
 import { useDispatch } from 'react-redux';
 import IconBtn from '../../../common/Iconbtn';
 import { setStep } from '../../../../Slices/CourseSlice';
+import { useState } from 'react';
+import { IoIosAddCircleOutline } from "react-icons/io";
 
 function Coursebuilder() {
+
+  const  [Editsectionname,setEditsectionname]= useState(null);
 
   const {
     register,
@@ -29,17 +33,29 @@ function Coursebuilder() {
     <h1> Course Builder</h1>
 
   <form onSubmit={handleSubmit(submithandler)}>
-    <label htmlFor='Coursebuilder'> Course Builder<sup>*</sup></label>
+    <div>
+    <label htmlFor='SectionName'> Course Builder<sup>*</sup></label>
     <input
-    id='Course Builder'
+    id='SectionName'
     type='text'
-    placeholder='Enter Course Name'
-    {...register("Coursebuilder",{required:true})}>
+    placeholder='Enter Section Name'
+    {...register("SectionName",{required:true})}>
 
     </input>
     {
-      errors.Coursebuilder && <span> required</span>
+      errors.SectionName && <span> required</span>
     }
+    <div>
+      <IconBtn text={Editsectionname?"Edit Section Name":"Create Section"}
+      outline={true}
+      customClasses={"text-white"}
+      
+    >
+        <IoIosAddCircleOutline className='text-yellow-50 text-lg' />
+    </IconBtn>
+  
+    </div>
+    </div>
     <div className='flex justify-end gap-10'>
     <IconBtn 
     text="Back"
