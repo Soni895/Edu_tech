@@ -7,6 +7,7 @@ import { useState } from "react";
 import { IoIosAddCircleOutline } from "react-icons/io";
 import NestedView from "./NestedView";
 import { IoArrowForwardCircleOutline } from "react-icons/io5";
+import toast from "react-hot-toast";
 
 
 function Coursebuilder() {
@@ -26,6 +27,29 @@ function Coursebuilder() {
   const submithandler = (data) => {
     console.log(data);
   };
+  const GoBack=()=>
+  {
+    dispatch(setEditcourse(true));
+    dispatch(setStep(1));
+
+  }
+  const GoNext=()=>
+  {
+    if(Course?.CourseContent.length===0)
+    {
+      toast.error("please add Section");
+
+    }
+   if(Course?.CourseContent.Some(Section=>Section.Subsection.length===0))
+   {
+    toast .error("add minimum one subs ection");
+
+   }
+
+   dispatch(setStep(3));
+
+
+  }
 
   return (
     <div>
@@ -69,9 +93,8 @@ function Coursebuilder() {
 
       {Course?.CourseContent.length > 0 && <NestedView />}
       <div className="flex justify-end gap-10">
-        <IconBtn text="Back" onclick={() => dispatch(setStep(1))} />
-        <IconBtn text="Submit" onclick={() =>(dispatch(setStep(3))
-        ,setEditcourse(true)) } >
+        <IconBtn text="Back" onclick={GoBack} />
+        <IconBtn text="Submit" onclick={GoNext } >
         <IoIosAddCircleOutline className="text-yellow-50 text-lg" />
 
         </IconBtn>
