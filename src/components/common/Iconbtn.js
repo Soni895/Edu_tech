@@ -10,7 +10,7 @@ function IconBtn({
     customClasses
 })
  {
-    console.log(text,children,onclick);
+    console.log(text,children,onclick,type);
     return (
       <button
         disabled={disable}

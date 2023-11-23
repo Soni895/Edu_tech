@@ -18,7 +18,7 @@ function Courseinfo() {
     reset,
     setValue,
     getValues,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors },
   } = useForm();
 
   const dispatch = useDispatch();
