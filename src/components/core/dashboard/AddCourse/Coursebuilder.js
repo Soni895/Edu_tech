@@ -13,6 +13,8 @@ import toast from "react-hot-toast";
 function Coursebuilder() {
   const [Editsectionname, setEditsectionname] = useState(null);
   const { Course } = useSelector((state) => state.Course);
+  const [laoding,setlaoding]= useState(false);
+  const {Token}= useSelector(state=>state.Auth);
   const {
     register,
     handleSubmit,
@@ -25,7 +27,20 @@ function Coursebuilder() {
   const dispatch = useDispatch();
 
   const submithandler = (data) => {
-    console.log(data);
+
+    let result;
+    setlaoding(true);
+
+    if(Editsectionname)
+    {
+      //edit section api  need to be add;
+      // make is pending
+
+    }
+    // craete couurse api
+
+    setlaoding(false);
+
   };
   const GoBack=()=>
   {
