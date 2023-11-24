@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 function Publish() {
 
@@ -13,13 +13,42 @@ function Publish() {
     formState: { errors },
   } = useForm();
   const dispatch= useDispatch();
-  const [laoding,setlaoding]=useState();
-  const {Course}= useselector((state)=>state.Course);
-  const {Token}= useselector((state)=>state.Auth)
+  const [loading,setloading]=useState();
+  const {Course}= useSelector((state)=>state.Course);
+  const {Token}= useSelector((state)=>state.Auth);
+  
 
+  const submithandler= (data)=>
+  {
+    console.log(data);
+  }
   
   return (
-    <div>Publish</div>
+    <div>
+    <p> Publish Course</p>
+    <form onSubmit={handleSubmit(submithandler)}>
+
+<div>
+<label htmlFor='Public'>  make this Course As public</label>
+<input
+id='Public'
+type='checkbox'
+
+
+ {...register("Public", { required: true })}></input>
+ {
+  errors.Public && <span>please theck the box</span>
+ }
+
+</div>
+<button>
+  submit
+</button>
+
+    </form>
+
+
+    </div>
   )
 }
 
