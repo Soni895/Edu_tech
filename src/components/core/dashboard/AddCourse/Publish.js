@@ -33,7 +33,12 @@ function Publish() {
           ></input>
           {errors.Public && <span>please theck the box</span>}
         </div>
+        <div>
+        <button type="button"> back</button>
         <button>submit</button>
+
+        </div>
+       
       </form>
     </div>
   );
