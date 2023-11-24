@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
+import { AiOutlineConsoleSql } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
+import { setStep } from "../../../../Slices/CourseSlice";
 
 function Publish() {
   const {
@@ -16,9 +18,17 @@ function Publish() {
   const { Course } = useSelector((state) => state.Course);
   const { Token } = useSelector((state) => state.Auth);
 
+function HandleCoursePublish()
+{
+  
+}
   const submithandler = (data) => {
-    console.log(data);
+    HandleCoursePublish();
   };
+  const Goback= ()=>
+  {
+    dispatch(setStep(2));
+  }
 
   return (
     <div>
@@ -33,9 +43,9 @@ function Publish() {
           ></input>
           {errors.Public && <span>please theck the box</span>}
         </div>
-        <div>
-        <button type="button"> back</button>
-        <button>submit</button>
+        <div className="flex gap-10">
+        <button type="button" disabled={loading} onClick={Goback}>Back</button>
+        <button disabled={loading}>save changes</button>
 
         </div>
        
