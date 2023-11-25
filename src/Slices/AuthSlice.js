@@ -7,8 +7,7 @@ const  initialState={
       loading: false,
 }
 const AuthSlice=createSlice(
-    {
-      
+      {
         name:"Auth",
         initialState,
         reducers: {
