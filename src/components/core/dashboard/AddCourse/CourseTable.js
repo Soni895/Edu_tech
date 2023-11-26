@@ -51,6 +51,35 @@ function CourseTable({ Courses, SetCourses }) {
                           </div>
 
                         </Td>
+                        <Td>
+
+                            4 Horse
+                        </Td>
+                        <Td>
+                            {Course?.price}
+                        </Td>
+                        <Td>
+                            <button
+                            disabled={loading}
+                            
+                            onClick={()=>
+                            {
+                                console.log("navi gate to edti course");
+                            }}
+                            >
+                                Edit
+                            </button>
+                            <button
+                            disabled={loading}
+                            
+                            onClick={()=>
+                            {
+                                console.log("navi gate to edti course");
+                            }}
+                            >
+                                Delete
+                            </button>
+                        </Td>
                     </Tr>
                     
 
