@@ -21,10 +21,10 @@ function Publish() {
 useEffect(()=>
 {
 
-  if(Course?.status===Course_status.Published)
-  {
-    setValue("Public",true);
-  }
+  // if(Course?.status===Course_status.Published)
+  // {
+  //   setValue("Public",true);
+  // }
 },[])
 
 function GoToCourses()
@@ -45,7 +45,7 @@ function GoToCourses()
   //   GoToCourses();
   //   return;
 
-  }
+  // }
 
   // if form is updated
   // const formData= new FormData();
@@ -59,10 +59,10 @@ setloading(true)
 
 // const result= await
 
-if(result)
-{
-  GoToCourses();
-}
+// if(result)
+// {
+//   GoToCourses();
+// }
 
 setloading(false);
 
