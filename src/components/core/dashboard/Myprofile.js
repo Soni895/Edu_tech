@@ -1,12 +1,12 @@
-import React from 'react'
-import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router';
-import Iconbtn from '../../common/Iconbtn';
-import {TbEdit} from "react-icons/tb";
+import React from "react";
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+import Iconbtn from "../../common/Iconbtn";
+import { TbEdit } from "react-icons/tb";
 
 function Myprofile() {
-    const {User}=useSelector((state)=>state.Profile);
-    const navigate=useNavigate();
+  const { User } = useSelector((state) => state.Profile);
+  const navigate = useNavigate();
   return (
     <div className="text-white">
       <h1>My Profile</h1>
@@ -19,28 +19,23 @@ function Myprofile() {
             alt={`Profile-${User?.FirstName}`}
           ></img>
           <p>{User?.FirstName + " " + User?.LastName}</p>
-          <p>
-            {
-                User?.Email
-            }
-          </p>
+          <p>{User?.Email}</p>
         </div>
         <Iconbtn
-        text={"edit"}
-        onclick={()=>{
-            navigate("/dashboard/Setting")
-        }}>
-            <TbEdit></TbEdit>
+          text={"edit"}
+          onclick={() => {
+            navigate("/dashboard/Setting");
+          }}
+        >
+          <TbEdit></TbEdit>
         </Iconbtn>
       </div>
 
       {/* section 2 */}
 
-      <div>
-        
-      </div>
+      <div></div>
     </div>
   );
 }
 
-export default Myprofile
+export default Myprofile;
