@@ -1,7 +1,7 @@
 import toast from "react-hot-toast";
 import { setloading,setToken} from "../../Slices/AuthSlice"
 import { ApiConnector } from "../ApiConnector";
-import {endpoints} from "../APIs";
+import { AuthEndpoints} from "../APIs";
 import { Categories } from "../APIs";
 import {setUser} from "../../Slices/ProfileSlice";
 
@@ -17,8 +17,8 @@ export const Getpasswordresettoken=(Email,setemailsent)=>
 
         dispatch(setloading(true));
         try {
-            console.log("endpoints.RESETPASSWORD_API=>",endpoints.RESETPASSTOKEN_API);
-            const response= await ApiConnector("POST",endpoints.RESETPASSTOKEN_API, {Email})
+            console.log("AuthEndpoints.RESETPASSWORD_API=>",AuthEndpoints.RESETPASSTOKEN_API);
+            const response= await ApiConnector("POST",AuthEndpoints.RESETPASSTOKEN_API, {Email})
             console.log ("response=>",response);
            
 
@@ -55,8 +55,8 @@ export const  ResetPassword=(Token,{Password,ConfirmPassword})=>
         dispatch(setloading(true));
        
         try {
-            console.log("endpoints.RESETPASSWORD_API=>",endpoints.RESETPASSWORD_API);
-            const response=await ApiConnector("post",endpoints.RESETPASSWORD_API, {Token,ConfirmPassword,Password})
+            console.log("endpoints.RESETPASSWORD_API=>",AuthEndpoints.RESETPASSWORD_API);
+            const response=await ApiConnector("post",AuthEndpoints.RESETPASSWORD_API, {Token,ConfirmPassword,Password})
             console.log("response resetpassowrd=>",response);
             toast.success("password  reset successful");
 
@@ -91,7 +91,7 @@ export const Login= ({email:Email,password:Password},navigate)=>
         console.log(" inside the login Auth API handler Email and password=>",Email,Password);
 
         try {
-            const response=await ApiConnector("post",endpoints.LOGIN_API,{
+            const response=await ApiConnector("post",AuthEndpoints.LOGIN_API,{
                 Email,Password
             });
             console.log(" login response=>",response);
@@ -128,7 +128,7 @@ export const Sendotp = (email,navigate) => {
         console.log("toastId=>",toastId);
         dispatch(setloading(true));
         try {
-            const response= await ApiConnector("post",endpoints.SENDOTP_API,{Email:email});
+            const response= await ApiConnector("post",AuthEndpoints.SENDOTP_API,{Email:email});
                console.log("response inside send otp=>",response);
 
                if (!response.data.status==="OK") {
@@ -179,7 +179,7 @@ export const Signup= (
 
         try {
             dispatch(setloading(true));
-            const response= await ApiConnector("post",endpoints.SIGNUP_API,{AccountType,
+            const response= await ApiConnector("post",AuthEndpoints.SIGNUP_API,{AccountType,
                 FirstName,
                 LastName,
                 Email,
