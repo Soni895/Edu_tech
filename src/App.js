@@ -18,6 +18,7 @@ import Cart from "./components/core/dashboard/cart/Cart.js";
 import { useSelector } from "react-redux";
 import Createcourse from "./components/core/dashboard/AddCourse/Createcourse.js";
 import MyCourses from "./components/core/dashboard/AddCourse/MyCourses.js";
+import Error from "./Pages/Error.js";
 function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -62,6 +63,9 @@ useEffect(()=>{
         </Route>
         <Route path="/createcourse" element={<Createcourse/>}></Route>
         <Route path="/MyCourses" element={<MyCourses/>}></Route>
+
+        {/* 404 Page */}
+        <Route path="*" element={<Error />} />
       </Routes>
     </div>
   );
