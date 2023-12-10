@@ -40,7 +40,7 @@ useEffect(()=>{
   const {User}=useSelector((state)=>state.Profile);
   console.log("User=>",User);
   return (
-    <div className="w-screen min-h-screen bg-richblack-900 flex flex-col font-inter">
+    <div className="flex min-h-screen w-screen flex-col bg-richblack-900 font-inter">
     <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
       <Routes>
        <Route path="/" element={<Home/>}></Route>
@@ -66,6 +66,5 @@ useEffect(()=>{
     </div>
   );
 }
-
 
 export default App;
