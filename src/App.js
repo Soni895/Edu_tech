@@ -42,7 +42,7 @@ useEffect(()=>{
   console.log("User=>",User);
   return (
     <div className="flex min-h-screen w-screen flex-col bg-richblack-900 font-inter">
-    <Navbar isLoggedIn={isLoggedIn} setIsLoggedIn={setIsLoggedIn}/>
+    <Navbar />
       <Routes>
        <Route path="/" element={<Home/>}></Route>
        <Route path="/about" element={<About/>}></Route>

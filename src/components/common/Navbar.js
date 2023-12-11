@@ -9,15 +9,18 @@ import { BsChevronDown } from "react-icons/bs";
 import UserProfile from "../core/Auth/UserProfile";
 import { useContext, useEffect, useState } from "react";
 import { categorycontext } from "../../context/CategoryContext";
-// import { getAllcategory } from "../../services/operations/AuthAPI";
+import { ACCOUNT_TYPE } from "../../utils/constants"
 
-const Navbar = ({ setIsLoggedIn, isLoggedIn }) => {
+
+const Navbar = () => {
   //  stats from auth,profule,cart
-
   const { Token } = useSelector((state) => state.Auth);
   const { User } = useSelector((state) => state.Profile);
   const { TotalItems } = useSelector((state) => state.Cart);
   const [sublink, setsublink] = useState([]);
+  const location = useLocation();
+  const [loading,setlaoding]= useState(false);
+  
 
   // using context api
 
@@ -37,8 +40,7 @@ const Navbar = ({ setIsLoggedIn, isLoggedIn }) => {
     GetAllcategory(setsublink);
   }, []);
 
-  const location = useLocation();
-
+ 
   const matchroute = (path) => {
     console.log(path);
     console.log(location.pathname);

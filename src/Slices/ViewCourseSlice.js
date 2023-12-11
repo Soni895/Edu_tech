@@ -8,7 +8,7 @@ const initialState = {
 }
 
 const viewCourseSlice = createSlice({
-  name: "viewCourse",
+  name: "ViewCourse",
   initialState,
   reducers: {
     setCourseSectionData: (state, action) => {
