@@ -1,18 +1,23 @@
 import React from 'react'
 import IconBtn from '../components/common/Iconbtn'
-import { useSelector } from 'react-redux';
-import {studentFeaturesAPI} from "../services/operations/studentFeaturesAPI"
+import { useDispatch, useSelector } from 'react-redux';
+import {BuyCourse} from "../services/operations/studentFeaturesAPI"
+import { useNavigate, useParams } from 'react-router';
 
 
 const Coursedetailes = () => {
    
+    const dispatch=useDispatch();
+    const navigate=useNavigate();
     const  {Token}= useSelector(state=>state.Auth);
+    const {User}=useSelector(state=>state.Profile);
     console.log(Token);
+    const CourseId=useParams();
     const handleBuyCourse= async()=>
     {
-        if(!Token)
+        if(Token)
         {
-            studentFeaturesAPI();
+            BuyCourse(Token,navigate,dispatch,User,[CourseId]);
             console.log("course buy successful");
 
             return;
