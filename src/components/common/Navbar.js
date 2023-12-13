@@ -108,10 +108,10 @@ const Navbar = () => {
         {/* Login - SignUp - LogOut - Dashboard */}
         <div className="flex items-center gap-x-4">
           {User && User?.AccountType !== "Instructor" && (
-            <link to={"/dashboard/cart"} className="relative">
+            <Link to={"/dashboard/cart"} className="relative">
               <AiOutlineShoppingCart />
               {TotalItems > 0 && <spam>{TotalItems}</spam>}
-            </link>
+            </Link>
           )}
 
           {Token === null && (

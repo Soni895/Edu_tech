@@ -40,7 +40,7 @@ function LoadScript(src)
 export const  BuyCourse=async(Token,navigate,dispatch,UserDetailes,Courses)=>
 {
     const toastId=toast.loading("laoding...");
-    console.log(Token,navigate,dispatch,UserDetailes,Courses);
+    console.log(Token,UserDetailes,Courses);
     try {
         const response= await LoadScript("https://checkout.razorpay.com/v1/checkout.js");
         console.log(response);
@@ -99,7 +99,6 @@ export const  BuyCourse=async(Token,navigate,dispatch,UserDetailes,Courses)=>
     toast.dismiss(toastId);
 
 }
-
 async function  SendPaymentSuccessEmail(response,amount,Token)
 {
 
