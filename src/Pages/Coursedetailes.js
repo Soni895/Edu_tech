@@ -13,6 +13,7 @@ const Coursedetailes = () => {
     const {User}=useSelector(state=>state.Profile);
     console.log(Token);
     const CourseId=useParams();
+    console.log(CourseId);
     const handleBuyCourse= async()=>
     {
         if(Token)

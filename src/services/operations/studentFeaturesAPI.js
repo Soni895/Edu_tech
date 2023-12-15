@@ -59,6 +59,7 @@ export const  BuyCourse=async(Token,navigate,dispatch,UserDetailes,Courses)=>
             throw new Error(order_Response.data.message);
         
           }  
+          
 
         //   options
         const Options={
@@ -85,6 +86,13 @@ export const  BuyCourse=async(Token,navigate,dispatch,UserDetailes,Courses)=>
             },
             // notes:,
         }
+
+        
+        //print razor pay options
+    
+    
+        console.log(" printing option inside the feature api Options=>",Options);
+
         // const rzp1 = new Razorpay(Options);
           console.log("PAYMENT RESPONSE FROM BACKEND............", order_Response.data);
 
