@@ -98,7 +98,7 @@ export const Login= ({email:Email,password:Password},navigate)=>
             dispatch(setToken(response.data.token));
             dispatch(setUser(response?.data?.user));
             toast.success("Login sucecssful");
-            navigate("courses/657085a98e15f18f75d83818",{ replace: true });   
+            navigate("/courses/657085a98e15f18f75d83818",{ replace: true });   
             
         } catch (error) {
 

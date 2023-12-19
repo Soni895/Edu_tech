@@ -2,17 +2,20 @@ import React from 'react'
 import IconBtn from '../components/common/Iconbtn'
 import { useDispatch, useSelector } from 'react-redux';
 import {BuyCourse} from "../services/operations/studentFeaturesAPI"
-import { useNavigate, useParams } from 'react-router';
+import { useLocation, useNavigate, useParams } from 'react-router';
 
 
 const Coursedetailes = () => {
    
     const dispatch=useDispatch();
     const navigate=useNavigate();
+    const location = useLocation();
+    console.log("location=>",location);
+    console.log("useParams=>",useParams());
     const  {Token}= useSelector(state=>state.Auth);
     const {User}=useSelector(state=>state.Profile);
     console.log(Token);
-    const CourseId=useParams();
+    const {CourseId}=useParams();
     console.log(CourseId);
     const handleBuyCourse= async()=>
     {
