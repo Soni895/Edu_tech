@@ -34,34 +34,35 @@ function LoadScript(src)
 }
 async function  SendPaymentSuccessEmail(response,amount,Token)
 {
+    console.log(response,amount,Token);
 
     console.log("SendPaymentSuccessEmail function called=>");
     try {
-        const Mail_Response= await  ApiConnector("POST",SEND_PAYMENT_SUCCESS_EMAIL_API,{
+        const Mail_Response= await ApiConnector("POST",SEND_PAYMENT_SUCCESS_EMAIL_API,{
             orderId:response.razorpay_order_id
-            , paymentId:response.razorpay_payment_id, amount
+            , paymentId:response.razorpay_payment_id, amount,Token
         },{
-            Authorization: `Bearer ${Token}`,});
+            Authorization: `Bearer ${Token}`});
             console.log("Mail_Response=>",Mail_Response);
-        return Mail_Response;
     } catch (error) {
 
         console.log("faild in sending successful payment mail");
         toast.error("MailSend Unsuccessful");
         console.log(error);
-        return error;
+      
         
     }
 }
 
-async function  VerifyPayment(bodydata,Token,navigate,dispatch){
+async function  VerifyPayment(bodydata,navigate,dispatch){
 
+    console.log(bodydata);
     const toastId=toast.loading("verify Payment...");
     dispatch(setPaymentloading(true));
     try {
-        
+       
         const  VerifyPayment_Resposne= await ApiConnector("post",COURSE_VERIFY_API,bodydata,{
-            Authorization: `Bearer ${Token}`,});
+            Authorization: `Bearer ${bodydata.Token}`,});
             if(!VerifyPayment_Resposne.data.success)
             {
                 throw new Error(VerifyPayment_Resposne.data.message)
@@ -127,19 +128,18 @@ export const  BuyCourse=async(Token,navigate,dispatch,UserDetailes,Courses)=>
             },
             handler:function(response)
             {
-               console.log(response);
-                alert(order_Response?.data?.PaymentResponse ?.id);
                 // send  successful mail
                 // verify payment
-                // console.log("response=>",response);
-                // SendPaymentSuccessEmail(response,order_Response.data.PaymentResponse.amount,Token);
-                // VerifyPayment({...response,Courses},Token,navigate,dispatch);
+                console.log("response=>",response);
+                SendPaymentSuccessEmail(response,order_Response.data.PaymentResponse.amount,Token);
+                VerifyPayment({...response,Courses,Token},navigate,dispatch);
 
             },
             // notes:,
         }
 
         //print razor pay options
+
         console.log(" printing option inside the feature api Options=>",Options);
         // const rzp1 = new Razorpay(Options);
           console.log("PAYMENT RESPONSE FROM BACKEND............", order_Response.data);
@@ -151,7 +151,6 @@ export const  BuyCourse=async(Token,navigate,dispatch,UserDetailes,Courses)=>
           });
 
     } catch (error) {
-        
         console.log("error in payment proecess","\n",error);
         toast.error("Payment Failed");
         
