@@ -80,7 +80,7 @@ const Navbar = () => {
                         className="  invisible opacity-0 absolute  left[50%] top[50%]  mr-10  mt-40 flex flex-col  w-[15rem]   z-10 rounded-md  bg-richblack-5 p-4 text-richblack-900
                    transition-all duration-200  group-hover:opacity-100 group-hover:visible
                   "
-                      >
+                     >
                         <div>
                           {sublink.length ? (
                             sublink.map((link, index) => (
